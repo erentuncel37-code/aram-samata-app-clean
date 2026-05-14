@@ -250,12 +250,6 @@ function OcrCardReader({ augmentNames, onApply }) {
           <button className="primary" type="button" onClick={() => onApply(suggestions)}>Bu kartları aktif tura uygula</button>
         </div>
       )}
-      {rawText && (
-        <details className="ocr-raw">
-          <summary>OCR ham metni göster</summary>
-          <pre>{rawText}</pre>
-        </details>
-      )}
     </div>
   );
 }
