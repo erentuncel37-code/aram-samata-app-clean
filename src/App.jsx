@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RotateCcw, Trophy, Swords, Sparkles, ShieldAlert, CheckCircle2, XCircle, Search } from 'lucide-react';
 import { champions, augments, meta, settings } from './data/gameData.js';
@@ -60,6 +60,26 @@ const UI = {
     highestRaw: 'bu üçlü içinde en yüksek ham puanı aldı',
     notFound: 'BULUNAMADI',
     notFoundReason: 'Eklenti veya şampiyon veritabanında bulunamadı.',
+    allies: '4 Takım Arkadaşı',
+    ally: 'Takım',
+    allyScore: 'Takım',
+    personalScore: 'Kişisel',
+    scoreDetails: 'Detaylı skor kırılımı',
+    dataBanner: 'Veri notu: Bu sürüm yerel maç geçmişinden öğrenir. Sonuç kaydettikçe öneri puanları sana göre küçük bonus/ceza alır.',
+    matchLog: 'Maç Geçmişi',
+    saveMatch: 'Maçı kaydet',
+    matchResult: 'Maç sonucu',
+    win: 'Kazandım',
+    loss: 'Kaybettim',
+    note: 'Not',
+    notePlaceholder: 'İsteğe bağlı: build nasıl hissettirdi?',
+    historyEmpty: 'Henüz maç kaydı yok.',
+    games: 'Oyun',
+    wins: 'Galibiyet',
+    winrate: 'Winrate',
+    clearHistory: 'Geçmişi temizle',
+    matchSaved: 'Maç kaydedildi.',
+    learningHint: 'Kişisel öğrenme bonusu: aynı şampiyon + aynı eklenti geçmiş sonuçlarına göre hesaplanır.',
   },
   en: {
     appName: 'Augment Tactics App',
@@ -115,6 +135,26 @@ const UI = {
     highestRaw: 'highest raw score among these options',
     notFound: 'NOT FOUND',
     notFoundReason: 'Augment or champion not found in database.',
+    allies: '4 Allies',
+    ally: 'Ally',
+    allyScore: 'Team',
+    personalScore: 'Personal',
+    scoreDetails: 'Detailed score breakdown',
+    dataBanner: 'Data note: this version learns from your local match history. Saved results add small personal bonuses/penalties to future scores.',
+    matchLog: 'Match History',
+    saveMatch: 'Save match',
+    matchResult: 'Match result',
+    win: 'Win',
+    loss: 'Loss',
+    note: 'Note',
+    notePlaceholder: 'Optional: how did this build feel?',
+    historyEmpty: 'No match records yet.',
+    games: 'Games',
+    wins: 'Wins',
+    winrate: 'Winrate',
+    clearHistory: 'Clear history',
+    matchSaved: 'Match saved.',
+    learningHint: 'Personal learning bonus: based on same champion + same augment results in your history.',
   },
 };
 
@@ -122,6 +162,45 @@ const normalize = (txt = '') => txt.toString().toLocaleLowerCase('tr-TR').trim()
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 const containsName = (list, name) => list.map(normalize).includes(normalize(name));
 const joinTags = (arr) => uniq(arr).join(', ');
+
+const APP_DATA_VERSION = 'Mayhem v8.1 · local learning';
+const MATCH_HISTORY_KEY = 'aramSamataMatchHistoryV1';
+
+function safeJsonParse(value, fallback) {
+  try { return value ? JSON.parse(value) : fallback; } catch { return fallback; }
+}
+function loadMatchHistory() {
+  if (typeof window === 'undefined') return [];
+  return safeJsonParse(window.localStorage.getItem(MATCH_HISTORY_KEY), []);
+}
+function saveMatchHistory(history) {
+  if (typeof window === 'undefined') return;
+  window.localStorage.setItem(MATCH_HISTORY_KEY, JSON.stringify(history.slice(0, 100)));
+}
+function canonicalAugmentName(name) {
+  return getAugment(name)?.name || name;
+}
+function allyTags(allyNames) {
+  return allyNames.flatMap(name => getChampion(name)?.tags || []);
+}
+function personalLearningBonus(augmentName, championName, matchHistory = []) {
+  const augName = normalize(canonicalAugmentName(augmentName));
+  const champName = normalize(championName);
+  const relevant = (matchHistory || []).filter((m) =>
+    normalize(m.champion) === champName &&
+    (m.picks || []).some((p) => normalize(p) === augName)
+  );
+  if (relevant.length < 2) return 0;
+  const wins = relevant.filter((m) => m.result === 'win').length;
+  const wr = wins / relevant.length;
+  return Math.max(-5, Math.min(8, Math.round((wr - 0.5) * 16)));
+}
+function historyStats(history = []) {
+  const games = history.length;
+  const wins = history.filter(m => m.result === 'win').length;
+  const winrate = games ? Math.round((wins / games) * 100) : 0;
+  return { games, wins, winrate };
+}
 
 function getChampion(name) {
   return champions.find((c) => normalize(c.name) === normalize(name));
@@ -173,11 +252,13 @@ function explainScore(parts, augment, champion, enemies, lang = 'tr') {
   if (parts.championTag > 0) bits.push(`${t.champTagFit} +${parts.championTag}`);
   if (parts.enemy > 0) bits.push(`${t.enemyValue} +${parts.enemy}`);
   if (parts.synergy > 0) bits.push(`${t.prevSynergy} +${parts.synergy}`);
+  if (parts.ally > 0) bits.push(`${t.allyScore} +${parts.ally}`);
+  if (parts.personal > 0) bits.push(`${t.personalScore} +${parts.personal}`);
   if (parts.meta > 0) bits.push(`${t.metaPriority} +${Math.round(parts.meta)}`);
   if (bits.length === 0) bits.push(t.highestRaw);
   return bits.slice(0, 3).join(' · ');
 }
-function scoreAugment(augmentName, championName, enemies, turns, currentTurnIndex, lang = 'tr') {
+function scoreAugment(augmentName, championName, enemies, turns, currentTurnIndex, lang = 'tr', allies = [], matchHistory = []) {
   const t = UI[lang] || UI.tr;
   const augment = getAugment(augmentName);
   const champ = getChampion(championName);
@@ -187,11 +268,14 @@ function scoreAugment(augmentName, championName, enemies, turns, currentTurnInde
   const champTags = champ.tags || [];
   const eTags = enemyTags(enemies);
   const pTags = previousTags(turns, currentTurnIndex);
+  const aTags = allyTags(allies);
   const parts = {
     direct: directChampionBonus(augment, championName),
     championTag: Math.min(28, tagScore(augment.tags, champTags, 'champion')),
     enemy: Math.min(18, tagScore(augment.counterTags?.length ? augment.counterTags : augment.tags, eTags, 'enemy')),
     synergy: Math.min(18, tagScore(augment.tags, pTags, 'synergy')),
+    ally: Math.min(10, Math.round(tagScore(augment.tags, aTags, 'synergy') * 0.55)),
+    personal: personalLearningBonus(augment.name, championName, matchHistory),
     meta: metaBonus(augment, championName),
     tier: Number(augment.tierScore || 0) * 2,
   };
@@ -207,10 +291,10 @@ function scoreAugment(augmentName, championName, enemies, turns, currentTurnInde
     reason: explainScore(parts, augment, championName, enemies, lang),
   };
 }
-function evaluateTurn(turnIndex, champion, enemies, turns, lang = 'tr') {
+function evaluateTurn(turnIndex, champion, enemies, turns, lang = 'tr', allies = [], matchHistory = []) {
   const options = turns[turnIndex].options.filter(Boolean);
   const threshold = Number(settings.thresholds[turnIndex + 1] || 50);
-  const scored = options.map(opt => scoreAugment(opt, champion, enemies, turns, turnIndex, lang)).sort((a, b) => b.score - a.score);
+  const scored = options.map(opt => scoreAugment(opt, champion, enemies, turns, turnIndex, lang, allies, matchHistory)).sort((a, b) => b.score - a.score);
   const best = scored[0];
   const pass = best && best.score >= threshold;
   return { scored, best, threshold, pass };
@@ -248,8 +332,38 @@ function ScoreBreakdown({ result, lang = 'tr' }) {
       <span>{t.championScore}: {Math.round((result.parts.direct || 0) + (result.parts.championTag || 0))}</span>
       <span>{t.enemyScore}: {Math.round(result.parts.enemy || 0)}</span>
       <span>{t.synergy}: {Math.round(result.parts.synergy || 0)}</span>
+      <span>{t.allyScore}: {Math.round(result.parts.ally || 0)}</span>
+      <span>{t.personalScore}: {Math.round(result.parts.personal || 0)}</span>
       <span>{t.metaTier}: {Math.round((result.parts.meta || 0) + (result.parts.tier || 0))}</span>
     </div>
+  );
+}
+
+
+function ScoreDetails({ result, lang = 'tr' }) {
+  const t = UI[lang] || UI.tr;
+  if (!result) return null;
+  const rows = [
+    [t.championScore, Math.round((result.parts.direct || 0) + (result.parts.championTag || 0))],
+    [t.enemyScore, Math.round(result.parts.enemy || 0)],
+    [t.synergy, Math.round(result.parts.synergy || 0)],
+    [t.allyScore, Math.round(result.parts.ally || 0)],
+    [t.personalScore, Math.round(result.parts.personal || 0)],
+    [t.metaTier, Math.round((result.parts.meta || 0) + (result.parts.tier || 0))],
+  ];
+  return (
+    <details className="score-details">
+      <summary>{t.scoreDetails}</summary>
+      <div className="detail-grid">
+        {rows.map(([label, value]) => (
+          <div className="detail-row" key={label}>
+            <span>{label}</span>
+            <b className={value > 0 ? 'pos' : value < 0 ? 'neg' : ''}>{value}</b>
+          </div>
+        ))}
+      </div>
+      <p>{t.learningHint}</p>
+    </details>
   );
 }
 
@@ -384,11 +498,16 @@ function App() {
   const augmentNames = useMemo(() => uniq(augments.flatMap(a => [a.name, a.nameTR, a.nameEN, ...(a.aliases || [])]).filter(Boolean)), []);
   const [champion, setChampion] = useState('Dr. Mundo');
   const [enemies, setEnemies] = useState(['Smolder', 'Twisted Fate', 'Illaoi', 'Cassiopeia', 'Lissandra']);
+  const [allies, setAllies] = useState(['', '', '', '']);
   const [turns, setTurns] = useState([{...emptyTurn}, {...emptyTurn}, {...emptyTurn}, {...emptyTurn}]);
+  const [matchHistory, setMatchHistory] = useState(() => loadMatchHistory());
+  const [matchResult, setMatchResult] = useState('win');
+  const [matchNote, setMatchNote] = useState('');
+  const [saveMessage, setSaveMessage] = useState('');
   const [activeTurn, setActiveTurn] = useState(0);
   const champ = getChampion(champion);
   const metaRow = getMeta(champion);
-  const evaluations = turns.map((_, i) => evaluateTurn(i, champion, enemies, turns, lang));
+  const evaluations = turns.map((_, i) => evaluateTurn(i, champion, enemies, turns, lang, allies, matchHistory));
   const currentEval = evaluations[activeTurn];
 
   function setTurnOption(ti, oi, value) {
@@ -409,9 +528,35 @@ function App() {
       lockedChoice: '',
     }));
   }
+  useEffect(() => {
+    saveMatchHistory(matchHistory);
+  }, [matchHistory]);
+
   function resetAll() {
     setTurns([{...emptyTurn}, {...emptyTurn}, {...emptyTurn}, {...emptyTurn}]);
     setActiveTurn(0);
+    setSaveMessage('');
+  }
+  function saveCurrentMatch() {
+    const picks = turns.map((turn) => canonicalAugmentName(turn.lockedChoice)).filter(Boolean);
+    if (!champion || picks.length === 0) return;
+    const record = {
+      id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      createdAt: new Date().toISOString(),
+      champion,
+      enemies,
+      allies,
+      picks,
+      result: matchResult,
+      note: matchNote,
+    };
+    setMatchHistory(prev => [record, ...prev].slice(0, 100));
+    setMatchNote('');
+    setSaveMessage(t.matchSaved);
+  }
+  function clearMatchHistory() {
+    setMatchHistory([]);
+    setSaveMessage('');
   }
 
   return (
@@ -428,6 +573,11 @@ function App() {
         </div>
       </section>
 
+      <section className="data-banner">
+        <b>{APP_DATA_VERSION}</b>
+        <span>{t.dataBanner}</span>
+      </section>
+
       <section className="card setup">
         <h2><Swords size={18}/> {t.setup}</h2>
         <label>{t.yourChampion}</label>
@@ -437,6 +587,12 @@ function App() {
         <div className="enemy-grid">
           {enemies.map((e, i) => (
             <AutoCompleteInput key={i} value={e} onChange={(v) => setEnemies(prev => prev.map((x, j) => j === i ? v : x))} options={championNames} placeholder={`${t.enemy} ${i+1}`} />
+          ))}
+        </div>
+        <label>{t.allies}</label>
+        <div className="enemy-grid">
+          {allies.map((ally, i) => (
+            <AutoCompleteInput key={i} value={ally} onChange={(v) => setAllies(prev => prev.map((x, j) => j === i ? v : x))} options={championNames} placeholder={`${t.ally} ${i+1}`} />
           ))}
         </div>
         {metaRow?.priorityAugments?.length > 0 && <div className="meta"><b>{t.metaPriorities}</b> {metaRow.priorityAugments.slice(0, 6).map(x => <Pill key={x}>{augmentDisplayName(x, lang)}</Pill>)}</div>}
@@ -483,6 +639,7 @@ function App() {
         </div>
         {currentEval.best && <>
           <ScoreBreakdown result={currentEval.best} lang={lang}/>
+          <ScoreDetails result={currentEval.best} lang={lang}/>
           <p className="reason"><b>{t.reason}</b> {currentEval.pass ? currentEval.best.reason : t.weakReason}</p>
           <div className="actions three-actions">
             {[0, 1, 2].map((i) => {
@@ -513,9 +670,40 @@ function App() {
       <section className="card">
         <h2><Trophy size={18}/> {t.summary}</h2>
         <div className="summary">
-          {turns.map((turn, i) => <div className="sum-row" key={i}><span>{t.turn} {i+1}</span><b>{turn.lockedChoice ? augmentDisplayName(turn.lockedChoice, lang) : t.notPicked}</b><em>{turn.lockedChoice ? `${scoreAugment(turn.lockedChoice, champion, enemies, turns, i, lang).score} ${t.points}` : ''}</em></div>)}
+          {turns.map((turn, i) => <div className="sum-row" key={i}><span>{t.turn} {i+1}</span><b>{turn.lockedChoice ? augmentDisplayName(turn.lockedChoice, lang) : t.notPicked}</b><em>{turn.lockedChoice ? `${scoreAugment(turn.lockedChoice, champion, enemies, turns, i, lang, allies, matchHistory).score} ${t.points}` : ''}</em></div>)}
         </div>
         <div className="build-tags"><ShieldAlert size={16}/> {t.buildDirection} {joinTags(previousTags(turns, 4).slice(0, 12)) || t.buildEmpty}</div>
+        <div className="save-panel">
+          <label>{t.matchResult}</label>
+          <div className="result-buttons">
+            <button type="button" className={matchResult === 'win' ? 'active-result' : ''} onClick={() => setMatchResult('win')}>{t.win}</button>
+            <button type="button" className={matchResult === 'loss' ? 'active-result' : ''} onClick={() => setMatchResult('loss')}>{t.loss}</button>
+          </div>
+          <label>{t.note}</label>
+          <input value={matchNote} onChange={(e) => setMatchNote(e.target.value)} placeholder={t.notePlaceholder} />
+          <button className="primary" type="button" onClick={saveCurrentMatch}>{t.saveMatch}</button>
+          {saveMessage && <div className="save-message">{saveMessage}</div>}
+        </div>
+      </section>
+
+      <section className="card history-card">
+        <h2><Trophy size={18}/> {t.matchLog}</h2>
+        {(() => {
+          const stats = historyStats(matchHistory);
+          return <div className="history-stats"><span>{t.games}: <b>{stats.games}</b></span><span>{t.wins}: <b>{stats.wins}</b></span><span>{t.winrate}: <b>{stats.winrate}%</b></span></div>;
+        })()}
+        {matchHistory.length === 0 ? <p>{t.historyEmpty}</p> : (
+          <div className="history-list">
+            {matchHistory.slice(0, 6).map((m) => (
+              <div className="history-item" key={m.id}>
+                <div><b>{m.champion}</b> · {m.result === 'win' ? t.win : t.loss}</div>
+                <span>{(m.picks || []).map(x => augmentDisplayName(x, lang)).join(' / ')}</span>
+                {m.note && <em>{m.note}</em>}
+              </div>
+            ))}
+          </div>
+        )}
+        {matchHistory.length > 0 && <button className="secondary" type="button" onClick={clearMatchHistory}>{t.clearHistory}</button>}
       </section>
     </main>
   );
