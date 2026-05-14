@@ -127,6 +127,138 @@ function ScoreBreakdown({ result }) {
     </div>
   );
 }
+
+function simplifyForMatch(txt = '') {
+  return txt
+    .toString()
+    .toLocaleLowerCase('tr-TR')
+    .replaceAll('ı', 'i')
+    .replaceAll('ğ', 'g')
+    .replaceAll('ü', 'u')
+    .replaceAll('ş', 's')
+    .replaceAll('ö', 'o')
+    .replaceAll('ç', 'c')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function levenshtein(a, b) {
+  const m = a.length;
+  const n = b.length;
+  if (!m) return n;
+  if (!n) return m;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost);
+    }
+  }
+  return dp[m][n];
+}
+function similarity(a, b) {
+  const aa = simplifyForMatch(a);
+  const bb = simplifyForMatch(b);
+  if (!aa || !bb) return 0;
+  if (aa.includes(bb) || bb.includes(aa)) return 0.96;
+  return 1 - levenshtein(aa, bb) / Math.max(aa.length, bb.length, 1);
+}
+function matchAugmentsFromOcr(text, augmentNames) {
+  const cleanText = simplifyForMatch(text);
+  const found = [];
+  const add = (name, score, source) => {
+    if (!name || found.some(x => normalize(x.name) === normalize(name))) return;
+    found.push({ name, score, source });
+  };
+
+  augmentNames.forEach((name) => {
+    const cleanName = simplifyForMatch(name);
+    if (cleanName.length >= 4 && cleanText.includes(cleanName)) add(name, 1, 'tam eşleşme');
+  });
+
+  const rawLines = text
+    .split(/\n|\r|\||•|·|-/)
+    .map(x => x.trim())
+    .filter(x => x.length >= 3)
+    .slice(0, 80);
+
+  rawLines.forEach((line) => {
+    let best = { name: '', score: 0 };
+    augmentNames.forEach((name) => {
+      const sc = similarity(line, name);
+      if (sc > best.score) best = { name, score: sc };
+    });
+    if (best.score >= 0.58) add(best.name, best.score, `OCR: ${line}`);
+  });
+
+  return found.sort((a, b) => b.score - a.score).slice(0, 3).map(x => x.name);
+}
+function OcrCardReader({ augmentNames, onApply }) {
+  const [status, setStatus] = useState('Görsel seçilmedi.');
+  const [rawText, setRawText] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const [progress, setProgress] = useState(0);
+
+  async function handleImage(file) {
+    if (!file) return;
+    setRawText('');
+    setSuggestions([]);
+    setProgress(0);
+
+    if (!window.Tesseract) {
+      setStatus('OCR motoru yüklenemedi. İnternet bağlantısını kontrol edip sayfayı yenile.');
+      return;
+    }
+
+    try {
+      setStatus('Görsel okunuyor...');
+      const result = await window.Tesseract.recognize(file, 'tur+eng', {
+        logger: (m) => {
+          if (m.status === 'recognizing text') setProgress(Math.round((m.progress || 0) * 100));
+        },
+      });
+      const text = result?.data?.text || '';
+      const matched = matchAugmentsFromOcr(text, augmentNames);
+      setRawText(text.trim());
+      setSuggestions(matched);
+      setStatus(matched.length ? `${matched.length} kart tahmini bulundu.` : 'Kart adı bulunamadı. Görseli daha yakından/kırpılmış şekilde dene.');
+    } catch (err) {
+      setStatus(`OCR hata verdi: ${err?.message || 'Bilinmeyen hata'}`);
+    }
+  }
+
+  return (
+    <div className="ocr-box">
+      <div className="ocr-head">
+        <div>
+          <b>Ekran görüntüsünden kartları oku</b>
+          <p>Opsiyonel: Fotoğraf/screenshot yükle, bulunan kartları aktif turun 3 alanına uygula.</p>
+        </div>
+      </div>
+      <input
+        className="file-input"
+        type="file"
+        accept="image/*"
+        onChange={(e) => handleImage(e.target.files?.[0])}
+      />
+      <div className="ocr-status">{status}{progress > 0 && progress < 100 ? ` (${progress}%)` : ''}</div>
+      {suggestions.length > 0 && (
+        <div className="ocr-results">
+          <div>{suggestions.map(x => <Pill key={x}>{x}</Pill>)}</div>
+          <button className="primary" type="button" onClick={() => onApply(suggestions)}>Bu kartları aktif tura uygula</button>
+        </div>
+      )}
+      {rawText && (
+        <details className="ocr-raw">
+          <summary>OCR ham metni göster</summary>
+          <pre>{rawText}</pre>
+        </details>
+      )}
+    </div>
+  );
+}
 function App() {
   const championNames = useMemo(() => champions.map(c => c.name), []);
   const augmentNames = useMemo(() => augments.map(a => a.name), []);
@@ -148,6 +280,13 @@ function App() {
   }
   function reroll() {
     setTurns(prev => prev.map((t, idx) => idx !== activeTurn ? t : { ...t, options: ['', '', ''], lockedChoice: '' }));
+  }
+  function applyOcrSuggestions(names) {
+    setTurns(prev => prev.map((t, idx) => idx !== activeTurn ? t : {
+      ...t,
+      options: [names[0] || '', names[1] || '', names[2] || ''],
+      lockedChoice: '',
+    }));
   }
   function resetAll() {
     setTurns([{...emptyTurn}, {...emptyTurn}, {...emptyTurn}, {...emptyTurn}]);
@@ -192,22 +331,12 @@ function App() {
           {turns[activeTurn].lockedChoice && <div className="locked"><CheckCircle2 size={16}/> Seçildi: {turns[activeTurn].lockedChoice}</div>}
         </div>
         <div className="option-grid">
-          {[0,1,2].map(i => (
-            <div
-  className={`option ${
-    currentEval.scored[0]?.name &&
-    normalize(currentEval.scored[0].name) === normalize(turns[activeTurn].options[i])
-      ? 'rank-best'
-      : currentEval.scored[1]?.name &&
-        normalize(currentEval.scored[1].name) === normalize(turns[activeTurn].options[i])
-      ? 'rank-mid'
-      : currentEval.scored[2]?.name &&
-        normalize(currentEval.scored[2].name) === normalize(turns[activeTurn].options[i])
-      ? 'rank-low'
-      : ''
-  }`}
-  key={i}
->
+          {[0,1,2].map(i => {
+            const optionName = turns[activeTurn].options[i];
+            const rank = currentEval.scored.findIndex(s => normalize(s.name) === normalize(optionName));
+            const rankClass = rank === 0 ? 'rank-best' : rank === 1 ? 'rank-mid' : rank === 2 ? 'rank-low' : '';
+            return (
+            <div className={`option ${rankClass}`} key={i}>
               <label>Kart {i+1}</label>
               <AutoCompleteInput value={turns[activeTurn].options[i]} onChange={(v) => setTurnOption(activeTurn, i, v)} options={augmentNames} placeholder="Eklenti yaz" />
               {currentEval.scored.find(s => normalize(s.name) === normalize(turns[activeTurn].options[i])) && (
@@ -216,8 +345,10 @@ function App() {
                 </div>
               )}
             </div>
-          ))}
+          )})}
         </div>
+
+        <OcrCardReader augmentNames={augmentNames} onApply={applyOcrSuggestions} />
 
         <div className={`decision ${currentEval.pass ? 'take' : 'reroll'}`}>
           {currentEval.best ? (
@@ -228,43 +359,36 @@ function App() {
           <ScoreBreakdown result={currentEval.best}/>
           <p className="reason"><b>Gerekçe:</b> {currentEval.pass ? currentEval.best.reason : 'Bu üçlü mevcut şampiyon, rakip ve önceki seçimlere göre yeterince güçlü görünmüyor.'}</p>
           <div className="actions three-actions">
-  {[0, 1, 2].map((i) => {
-    const optionName = turns[activeTurn].options[i];
-    const scoredOption = currentEval.scored.find(
-      (s) => normalize(s.name) === normalize(optionName)
-    );
+            {[0, 1, 2].map((i) => {
+              const optionName = turns[activeTurn].options[i];
+              const scoredOption = currentEval.scored.find(
+                (s) => normalize(s.name) === normalize(optionName)
+              );
 
-    if (!optionName || !scoredOption) return null;
+              if (!optionName || !scoredOption) return null;
 
-    return (
-      <button
-        key={i}
-        className="primary"
-        onClick={() => choose(scoredOption.name)}
-      >
-        {i + 1}. kartı seçtim, devam
-      </button>
-    );
-  })}
+              return (
+                <button
+                  key={i}
+                  className="primary"
+                  onClick={() => choose(scoredOption.name)}
+                >
+                  {i + 1}. kartı seçtim, devam
+                </button>
+              );
+            })}
 
-  <button
-    className="secondary"
-    onClick={reroll}
-  >
-    Kartları çevirdim, alanı temizle
-  </button>
-</div>
+            <button className="secondary" onClick={reroll}>
+              Kartları çevirdim, alanı temizle
+            </button>
+          </div>
         </>}
       </section>
 
       <section className="card">
         <h2><Trophy size={18}/> Seçim Özeti</h2>
         <div className="summary">
-          {turns.map((t, i) => <div className="sum-row" key={i}><span>Tur {i+1}</span><b>{t.lockedChoice || 'Henüz seçilmedi'}</b><em>
-  {t.lockedChoice
-    ? `${scoreAugment(t.lockedChoice, champion, enemies, turns, i).score} puan`
-    : ''}
-</em></div>)}
+          {turns.map((t, i) => <div className="sum-row" key={i}><span>Tur {i+1}</span><b>{t.lockedChoice || 'Henüz seçilmedi'}</b><em>{t.lockedChoice ? `${scoreAugment(t.lockedChoice, champion, enemies, turns, i).score} puan` : ''}</em></div>)}
         </div>
         <div className="build-tags"><ShieldAlert size={16}/> Build yönü: {joinTags(previousTags(turns, 4).slice(0, 12)) || 'Seçim yaptıkça burada oluşacak.'}</div>
       </section>
