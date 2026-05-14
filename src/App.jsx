@@ -246,7 +246,11 @@ function App() {
       <section className="card">
         <h2><Trophy size={18}/> Seçim Özeti</h2>
         <div className="summary">
-          {turns.map((t, i) => <div className="sum-row" key={i}><span>Tur {i+1}</span><b>{t.lockedChoice || 'Henüz seçilmedi'}</b><em>{t.lockedChoice ? `${evaluations[i].best?.score || ''} puan` : ''}</em></div>)}
+          {turns.map((t, i) => <div className="sum-row" key={i}><span>Tur {i+1}</span><b>{t.lockedChoice || 'Henüz seçilmedi'}</b><em>
+  {t.lockedChoice
+    ? `${scoreAugment(t.lockedChoice, champion, enemies, turns, i).score} puan`
+    : ''}
+</em></div>)}
         </div>
         <div className="build-tags"><ShieldAlert size={16}/> Build yönü: {joinTags(previousTags(turns, 4).slice(0, 12)) || 'Seçim yaptıkça burada oluşacak.'}</div>
       </section>
