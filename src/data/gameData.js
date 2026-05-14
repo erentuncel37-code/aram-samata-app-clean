@@ -2341,6 +2341,118 @@ export const champions = [
       "CC",
       "Range"
     ]
+  },
+  {
+    "name": "Ambessa",
+    "url": "https://www.metasrc.com/lol/mayhem/build/ambessa?utm_source=chatgpt.com",
+    "role": "Bruiser / Diver",
+    "damage": "AD",
+    "tags": [
+      "AD",
+      "Bruiser",
+      "Mobility",
+      "Engage",
+      "Sustain",
+      "DPS"
+    ]
+  },
+  {
+    "name": "Aurora",
+    "url": "https://www.metasrc.com/lol/mayhem/build/aurora?utm_source=chatgpt.com",
+    "role": "Mage Burst / Skirmisher",
+    "damage": "AP",
+    "tags": [
+      "AP",
+      "Burst",
+      "Poke",
+      "Mobility",
+      "Haste",
+      "Range"
+    ]
+  },
+  {
+    "name": "Briar",
+    "url": "https://www.metasrc.com/lol/mayhem/build/briar?utm_source=chatgpt.com",
+    "role": "Bruiser / Diver",
+    "damage": "AD",
+    "tags": [
+      "AD",
+      "Bruiser",
+      "Sustain",
+      "Engage",
+      "DPS",
+      "HP"
+    ]
+  },
+  {
+    "name": "Ivern",
+    "url": "https://www.metasrc.com/lol/mayhem/build/ivern?utm_source=chatgpt.com",
+    "role": "Support / Enchanter",
+    "damage": "AP/Utility",
+    "tags": [
+      "Support",
+      "Shield",
+      "AP",
+      "CC",
+      "Range",
+      "Summon"
+    ]
+  },
+  {
+    "name": "K'Sante",
+    "url": "https://www.metasrc.com/lol/mayhem/build/ksante?utm_source=chatgpt.com",
+    "role": "Tank / Bruiser",
+    "damage": "AD",
+    "tags": [
+      "Tank",
+      "AD",
+      "HP",
+      "CC",
+      "Engage",
+      "Sustain"
+    ]
+  },
+  {
+    "name": "Lissandra",
+    "url": "https://www.metasrc.com/lol/mayhem/build/lissandra?utm_source=chatgpt.com",
+    "role": "Mage Control / Engage",
+    "damage": "AP",
+    "tags": [
+      "AP",
+      "CC",
+      "Burst",
+      "Engage",
+      "Haste",
+      "AntiBurst"
+    ]
+  },
+  {
+    "name": "Yunara",
+    "url": "https://www.metasrc.com/lol/mayhem/build/yunara?utm_source=chatgpt.com",
+    "role": "ADC DPS",
+    "damage": "AD",
+    "tags": [
+      "AD",
+      "AttackSpeed",
+      "OnHit",
+      "Crit",
+      "Range",
+      "DPS"
+    ]
+  },
+  {
+    "name": "Zaahen",
+    "url": "https://www.metasrc.com/lol/mayhem/build/zaahen?utm_source=chatgpt.com",
+    "role": "Bruiser / Fighter",
+    "damage": "AD",
+    "tags": [
+      "AD",
+      "Bruiser",
+      "Sustain",
+      "DPS",
+      "Engage",
+      "HP"
+    ]
   }
 ];
 export const augments = [
@@ -7831,6 +7943,38 @@ export const meta = [
     "champion": "Zyra",
     "priorityAugments": [],
     "source": "https://www.metasrc.com/lol/mayhem/build/zyra?utm_source=chatgpt.com"
+  },
+  {
+    "champion": "Ambessa",
+    "priorityAugments": []
+  },
+  {
+    "champion": "Aurora",
+    "priorityAugments": []
+  },
+  {
+    "champion": "Briar",
+    "priorityAugments": []
+  },
+  {
+    "champion": "Ivern",
+    "priorityAugments": []
+  },
+  {
+    "champion": "K'Sante",
+    "priorityAugments": []
+  },
+  {
+    "champion": "Lissandra",
+    "priorityAugments": []
+  },
+  {
+    "champion": "Yunara",
+    "priorityAugments": []
+  },
+  {
+    "champion": "Zaahen",
+    "priorityAugments": []
   }
 ];
 export const settings = {
