@@ -193,7 +193,21 @@ function App() {
         </div>
         <div className="option-grid">
           {[0,1,2].map(i => (
-            <div className="option" key={i}>
+            <div
+  className={`option ${
+    currentEval.scored[0]?.name &&
+    normalize(currentEval.scored[0].name) === normalize(turns[activeTurn].options[i])
+      ? 'rank-best'
+      : currentEval.scored[1]?.name &&
+        normalize(currentEval.scored[1].name) === normalize(turns[activeTurn].options[i])
+      ? 'rank-mid'
+      : currentEval.scored[2]?.name &&
+        normalize(currentEval.scored[2].name) === normalize(turns[activeTurn].options[i])
+      ? 'rank-low'
+      : ''
+  }`}
+  key={i}
+>
               <label>Kart {i+1}</label>
               <AutoCompleteInput value={turns[activeTurn].options[i]} onChange={(v) => setTurnOption(activeTurn, i, v)} options={augmentNames} placeholder="Eklenti yaz" />
               {currentEval.scored.find(s => normalize(s.name) === normalize(turns[activeTurn].options[i])) && (
