@@ -2482,7 +2482,14 @@ export const augments = [
       "Bruiser",
       "LongFight"
     ],
-    "note": "Yük kazanımı, uzun savaş ve tank scaling"
+    "note": "Yük kazanımı, uzun savaş ve tank scaling",
+    "nameTR": "Zahmetsiz Yük",
+    "nameEN": "Easy to Load",
+    "aliases": [
+      "Easy to Load",
+      "Zahmetsiz Yuk",
+      "Zahmetsiz Yük"
+    ]
   },
   {
     "name": "Havai Fişek Seti",
@@ -2511,7 +2518,14 @@ export const augments = [
       "Squishy",
       "Range"
     ],
-    "note": "Sekmeli hasar"
+    "note": "Sekmeli hasar",
+    "nameTR": "Havai Fişek Seti",
+    "nameEN": "Fireworks Set",
+    "aliases": [
+      "Fireworks Set",
+      "Havai Fisek Seti",
+      "Havai Fişek Seti"
+    ]
   },
   {
     "name": "Talihli",
@@ -2537,7 +2551,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Ekonomi/highroll"
+    "note": "Ekonomi/highroll",
+    "nameTR": "Talihli",
+    "nameEN": "Lucky",
+    "aliases": [
+      "Lucky",
+      "Talihli"
+    ]
   },
   {
     "name": "Kartopu Savaşı",
@@ -2565,7 +2585,14 @@ export const augments = [
       "Poke",
       "Range"
     ],
-    "note": "Kartopu odaklı engage"
+    "note": "Kartopu odaklı engage",
+    "nameTR": "Kartopu Savaşı",
+    "nameEN": "Snowball Fight",
+    "aliases": [
+      "Kartopu Savasi",
+      "Kartopu Savaşı",
+      "Snowball Fight"
+    ]
   },
   {
     "name": "Yağsın Altınlar",
@@ -2590,7 +2617,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Altın kazandırır"
+    "note": "Altın kazandırır",
+    "nameTR": "Yağsın Altınlar",
+    "nameEN": "Make It Rain",
+    "aliases": [
+      "Make It Rain",
+      "Yagsin Altinlar",
+      "Yağsın Altınlar"
+    ]
   },
   {
     "name": "Baş Büyücü",
@@ -2618,7 +2652,14 @@ export const augments = [
       "Squishy",
       "Poke"
     ],
-    "note": "Skill döngüsü"
+    "note": "Skill döngüsü",
+    "nameTR": "Baş Büyücü",
+    "nameEN": "Master of Duality",
+    "aliases": [
+      "Bas Buyucu",
+      "Baş Büyücü",
+      "Master of Duality"
+    ]
   },
   {
     "name": "Noo Nii Noo Nii",
@@ -2646,7 +2687,13 @@ export const augments = [
       "Poke",
       "Burst"
     ],
-    "note": "Destek odaklı"
+    "note": "Destek odaklı",
+    "nameTR": "Noo Nii Noo Nii",
+    "nameEN": "Nunu Nunu Nunu",
+    "aliases": [
+      "Noo Nii Noo Nii",
+      "Nunu Nunu Nunu"
+    ]
   },
   {
     "name": "Hiddetli Dalış Seti",
@@ -2671,7 +2718,14 @@ export const augments = [
       "Range",
       "Squishy"
     ],
-    "note": "Dive"
+    "note": "Dive",
+    "nameTR": "Hiddetli Dalış Seti",
+    "nameEN": "Furious Dive Set",
+    "aliases": [
+      "Furious Dive Set",
+      "Hiddetli Dalis Seti",
+      "Hiddetli Dalış Seti"
+    ]
   },
   {
     "name": "Tam Otomatik",
@@ -2697,7 +2751,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Otomatik kullanım"
+    "note": "Otomatik kullanım",
+    "nameTR": "Tam Otomatik",
+    "nameEN": "Fully Automated",
+    "aliases": [
+      "Fully Automated",
+      "Tam Otomatik"
+    ]
   },
   {
     "name": "Alev Geçidi",
@@ -2723,7 +2783,14 @@ export const augments = [
       "Bruiser",
       "HP"
     ],
-    "note": "Yeteneklerle yakma"
+    "note": "Yeteneklerle yakma",
+    "nameTR": "Alev Geçidi",
+    "nameEN": "Infernal Conduit",
+    "aliases": [
+      "Alev Gecidi",
+      "Alev Geçidi",
+      "Infernal Conduit"
+    ]
   },
   {
     "name": "Dev Katili",
@@ -2748,7 +2815,13 @@ export const augments = [
       "HP",
       "Bruiser"
     ],
-    "note": "Tank eritme"
+    "note": "Tank eritme",
+    "nameTR": "Dev Katili",
+    "nameEN": "Giant Slayer",
+    "aliases": [
+      "Dev Katili",
+      "Giant Slayer"
+    ]
   },
   {
     "name": "Evreka!",
@@ -2771,7 +2844,13 @@ export const augments = [
       "Squishy",
       "Poke"
     ],
-    "note": "Yetenek hızı -> AP"
+    "note": "Yetenek hızı -> AP",
+    "nameTR": "Evreka!",
+    "nameEN": "Eureka!",
+    "aliases": [
+      "Eureka!",
+      "Evreka!"
+    ]
   },
   {
     "name": "Hiçlik'e Açılan Yarık",
@@ -2795,7 +2874,14 @@ export const augments = [
       "Bruiser",
       "LongFight"
     ],
-    "note": "Büyü hasarı alan"
+    "note": "Büyü hasarı alan",
+    "nameTR": "Hiçlik'e Açılan Yarık",
+    "nameEN": "Rift to the Void",
+    "aliases": [
+      "Hiclik'e Acilan Yarik",
+      "Hiçlik'e Açılan Yarık",
+      "Rift to the Void"
+    ]
   },
   {
     "name": "Mücevherli Eldiven",
@@ -2818,7 +2904,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Skill crit"
+    "note": "Skill crit",
+    "nameTR": "Mücevherli Eldiven",
+    "nameEN": "Jeweled Gauntlet",
+    "aliases": [
+      "Jeweled Gauntlet",
+      "Mucevherli Eldiven",
+      "Mücevherli Eldiven"
+    ]
   },
   {
     "name": "Seri Atış",
@@ -2843,7 +2936,14 @@ export const augments = [
       "Squishy",
       "Tank"
     ],
-    "note": "Uzak mesafe saldırı"
+    "note": "Uzak mesafe saldırı",
+    "nameTR": "Seri Atış",
+    "nameEN": "Tap Dancer",
+    "aliases": [
+      "Seri Atis",
+      "Seri Atış",
+      "Tap Dancer"
+    ]
   },
   {
     "name": "Step Dansı",
@@ -2866,7 +2966,14 @@ export const augments = [
       "Skillshot",
       "Poke"
     ],
-    "note": "Hareket hızı ile saldırı hızı"
+    "note": "Hareket hızı ile saldırı hızı",
+    "nameTR": "Step Dansı",
+    "nameEN": "Tap Dancer",
+    "aliases": [
+      "Step Dansi",
+      "Step Dansı",
+      "Tap Dancer"
+    ]
   },
   {
     "name": "Çifte",
@@ -2890,7 +2997,14 @@ export const augments = [
       "LowHP",
       "Tank"
     ],
-    "note": "Execute ve sustain"
+    "note": "Execute ve sustain",
+    "nameTR": "Çifte",
+    "nameEN": "Twice Thrice",
+    "aliases": [
+      "Cifte",
+      "Twice Thrice",
+      "Çifte"
+    ]
   },
   {
     "name": "Çifte Silah",
@@ -2915,7 +3029,14 @@ export const augments = [
       "Tank",
       "Squishy"
     ],
-    "note": "On-hit ADC"
+    "note": "On-hit ADC",
+    "nameTR": "Çifte Silah",
+    "nameEN": "Dual Wield",
+    "aliases": [
+      "Cifte Silah",
+      "Dual Wield",
+      "Çifte Silah"
+    ]
   },
   {
     "name": "En Büyük Dürbünlü Silahlar",
@@ -2938,7 +3059,14 @@ export const augments = [
     "counterTags": [
       "ShortRange"
     ],
-    "note": "Menzil"
+    "note": "Menzil",
+    "nameTR": "En Büyük Dürbünlü Silahlar",
+    "nameEN": "Very Big Scoped Weapons",
+    "aliases": [
+      "En Buyuk Durbunlu Silahlar",
+      "En Büyük Dürbünlü Silahlar",
+      "Very Big Scoped Weapons"
+    ]
   },
   {
     "name": "Görev: Wooglet'in Cadı Şapkası",
@@ -2959,7 +3087,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "AP spike"
+    "note": "AP spike",
+    "nameTR": "Görev: Wooglet'in Cadı Şapkası",
+    "nameEN": "Quest: Wooglet's Witchcap",
+    "aliases": [
+      "Gorev: Wooglet'in Cadi Sapkasi",
+      "Görev: Wooglet'in Cadı Şapkası",
+      "Quest: Wooglet's Witchcap"
+    ]
   },
   {
     "name": "İzbandut",
@@ -2983,7 +3118,14 @@ export const augments = [
       "Burst",
       "LongFight"
     ],
-    "note": "HP/kuvvet scaling"
+    "note": "HP/kuvvet scaling",
+    "nameTR": "İzbandut",
+    "nameEN": "Goliath",
+    "aliases": [
+      "Goliath",
+      "Izbandut",
+      "İzbandut"
+    ]
   },
   {
     "name": "Palyaço Koleji",
@@ -3006,7 +3148,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Kandırma/patlama"
+    "note": "Kandırma/patlama",
+    "nameTR": "Palyaço Koleji",
+    "nameEN": "Clown College",
+    "aliases": [
+      "Clown College",
+      "Palyaco Koleji",
+      "Palyaço Koleji"
+    ]
   },
   {
     "name": "Simya: Kaos",
@@ -3028,7 +3177,13 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Rasgele güç"
+    "note": "Rasgele güç",
+    "nameTR": "Simya: Kaos",
+    "nameEN": "Transmute: Chaos",
+    "aliases": [
+      "Simya: Kaos",
+      "Transmute: Chaos"
+    ]
   },
   {
     "name": "Büsbüyük Kartopu",
@@ -3052,7 +3207,14 @@ export const augments = [
       "Poke",
       "Range"
     ],
-    "note": "Büyük kartopu"
+    "note": "Büyük kartopu",
+    "nameTR": "Büsbüyük Kartopu",
+    "nameEN": "Biggest Snowball Ever",
+    "aliases": [
+      "Biggest Snowball Ever",
+      "Busbuyuk Kartopu",
+      "Büsbüyük Kartopu"
+    ]
   },
   {
     "name": "Çek Kılıcını!",
@@ -3076,7 +3238,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Yakın dövüş dönüşümü"
+    "note": "Yakın dövüş dönüşümü",
+    "nameTR": "Çek Kılıcını!",
+    "nameEN": "Draw Your Sword",
+    "aliases": [
+      "Cek Kilicini!",
+      "Draw Your Sword",
+      "Çek Kılıcını!"
+    ]
   },
   {
     "name": "Gaddarlık",
@@ -3098,7 +3267,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Hasar bonusu"
+    "note": "Hasar bonusu",
+    "nameTR": "Gaddarlık",
+    "nameEN": "The Brutalizer",
+    "aliases": [
+      "Gaddarlik",
+      "Gaddarlık",
+      "The Brutalizer"
+    ]
   },
   {
     "name": "Mistik Yumruk",
@@ -3121,7 +3297,13 @@ export const augments = [
       "Tank",
       "LongFight"
     ],
-    "note": "Oto saldırı ile bekleme azalması"
+    "note": "Oto saldırı ile bekleme azalması",
+    "nameTR": "Mistik Yumruk",
+    "nameEN": "Mystic Punch",
+    "aliases": [
+      "Mistik Yumruk",
+      "Mystic Punch"
+    ]
   },
   {
     "name": "Nihai Biçim",
@@ -3143,7 +3325,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Ulti sonrası form"
+    "note": "Ulti sonrası form",
+    "nameTR": "Nihai Biçim",
+    "nameEN": "Ultimate Unstoppable",
+    "aliases": [
+      "Nihai Bicim",
+      "Nihai Biçim",
+      "Ultimate Unstoppable"
+    ]
   },
   {
     "name": "Nitelik Üstüne Nitelik",
@@ -3164,7 +3353,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Nitelik scaling"
+    "note": "Nitelik scaling",
+    "nameTR": "Nitelik Üstüne Nitelik",
+    "nameEN": "Stats on Stats!",
+    "aliases": [
+      "Nitelik Ustune Nitelik",
+      "Nitelik Üstüne Nitelik",
+      "Stats on Stats!"
+    ]
   },
   {
     "name": "Pandora'nın Kutusu",
@@ -3185,7 +3381,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Eklenti dönüşümü"
+    "note": "Eklenti dönüşümü",
+    "nameTR": "Pandora'nın Kutusu",
+    "nameEN": "Pandora's Box",
+    "aliases": [
+      "Pandora'nin Kutusu",
+      "Pandora'nın Kutusu",
+      "Pandora's Box"
+    ]
   },
   {
     "name": "Rüzgâra Fısıldayan'ın Lütfu",
@@ -3208,7 +3411,14 @@ export const augments = [
       "Poke",
       "Burst"
     ],
-    "note": "Destek güçlendirme"
+    "note": "Destek güçlendirme",
+    "nameTR": "Rüzgâra Fısıldayan'ın Lütfu",
+    "nameEN": "Windspeaker's Blessing",
+    "aliases": [
+      "Ruzgara Fisildayan'in Lutfu",
+      "Rüzgâra Fısıldayan'ın Lütfu",
+      "Windspeaker's Blessing"
+    ]
   },
   {
     "name": "Savaş Senfonisi",
@@ -3231,7 +3441,14 @@ export const augments = [
       "Tank",
       "LongFight"
     ],
-    "note": "Tempo ve yenilmez anlar"
+    "note": "Tempo ve yenilmez anlar",
+    "nameTR": "Savaş Senfonisi",
+    "nameEN": "Symphony of War",
+    "aliases": [
+      "Savas Senfonisi",
+      "Savaş Senfonisi",
+      "Symphony of War"
+    ]
   },
   {
     "name": "Sonsuz Yineleme",
@@ -3252,7 +3469,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Yetenek hızı"
+    "note": "Yetenek hızı",
+    "nameTR": "Sonsuz Yineleme",
+    "nameEN": "Recursion",
+    "aliases": [
+      "Recursion",
+      "Sonsuz Yineleme"
+    ]
   },
   {
     "name": "Yavaş Pişmiş",
@@ -3275,7 +3498,14 @@ export const augments = [
       "Melee",
       "Tank"
     ],
-    "note": "Yakın yakma"
+    "note": "Yakın yakma",
+    "nameTR": "Yavaş Pişmiş",
+    "nameEN": "Slow Cooker",
+    "aliases": [
+      "Slow Cooker",
+      "Yavas Pismis",
+      "Yavaş Pişmiş"
+    ]
   },
   {
     "name": "Altınsöken",
@@ -3296,7 +3526,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Altın ve hız"
+    "note": "Altın ve hız",
+    "nameTR": "Altınsöken",
+    "nameEN": "Gold Collector",
+    "aliases": [
+      "Altinsoken",
+      "Altınsöken",
+      "Gold Collector"
+    ]
   },
   {
     "name": "Atılgan",
@@ -3318,7 +3555,14 @@ export const augments = [
       "Skillshot",
       "Poke"
     ],
-    "note": "Mobilite"
+    "note": "Mobilite",
+    "nameTR": "Atılgan",
+    "nameEN": "Dashing",
+    "aliases": [
+      "Atilgan",
+      "Atılgan",
+      "Dashing"
+    ]
   },
   {
     "name": "Çılgın Bilim İnsanı",
@@ -3339,7 +3583,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Boyut/HP"
+    "note": "Boyut/HP",
+    "nameTR": "Çılgın Bilim İnsanı",
+    "nameEN": "Mad Scientist",
+    "aliases": [
+      "Cilgin Bilim Insani",
+      "Mad Scientist",
+      "Çılgın Bilim İnsanı"
+    ]
   },
   {
     "name": "Denge Uzmanı",
@@ -3360,7 +3611,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Nitelik dönüşümü"
+    "note": "Nitelik dönüşümü",
+    "nameTR": "Denge Uzmanı",
+    "nameEN": "Balanced Budget",
+    "aliases": [
+      "Balanced Budget",
+      "Denge Uzmani",
+      "Denge Uzmanı"
+    ]
   },
   {
     "name": "Geliştirme: Mikael'in Lütfu",
@@ -3383,7 +3641,14 @@ export const augments = [
       "CC",
       "Burst"
     ],
-    "note": "Koruma"
+    "note": "Koruma",
+    "nameTR": "Geliştirme: Mikael'in Lütfu",
+    "nameEN": "Item Upgrade: Mikael's Blessing",
+    "aliases": [
+      "Gelistirme: Mikael'in Lutfu",
+      "Geliştirme: Mikael'in Lütfu",
+      "Item Upgrade: Mikael's Blessing"
+    ]
   },
   {
     "name": "Heyulanın Cesareti",
@@ -3405,7 +3670,14 @@ export const augments = [
       "CC",
       "Engage"
     ],
-    "note": "Hareketsiz bırakınca kalkan"
+    "note": "Hareketsiz bırakınca kalkan",
+    "nameTR": "Heyulanın Cesareti",
+    "nameEN": "Courage of the Colossus",
+    "aliases": [
+      "Courage of the Colossus",
+      "Heyulanin Cesareti",
+      "Heyulanın Cesareti"
+    ]
   },
   {
     "name": "Kerberos",
@@ -3427,7 +3699,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Rün kazanımı"
+    "note": "Rün kazanımı",
+    "nameTR": "Kerberos",
+    "nameEN": "Cerberus",
+    "aliases": [
+      "Cerberus",
+      "Kerberos"
+    ]
   },
   {
     "name": "Kertik",
@@ -3447,7 +3725,13 @@ export const augments = [
     "counterTags": [
       "Tank"
     ],
-    "note": "Saldırı hız bonusu"
+    "note": "Saldırı hız bonusu",
+    "nameTR": "Kertik",
+    "nameEN": "Scopier Weapons",
+    "aliases": [
+      "Kertik",
+      "Scopier Weapons"
+    ]
   },
   {
     "name": "Kral Benim",
@@ -3467,7 +3751,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Katledince eklenti"
+    "note": "Katledince eklenti",
+    "nameTR": "Kral Benim",
+    "nameEN": "King of the Hill",
+    "aliases": [
+      "King of the Hill",
+      "Kral Benim"
+    ]
   },
   {
     "name": "Ölüm Döngüsü",
@@ -3489,7 +3779,14 @@ export const augments = [
       "Poke",
       "LongFight"
     ],
-    "note": "İyileştirme yansıtma"
+    "note": "İyileştirme yansıtma",
+    "nameTR": "Ölüm Döngüsü",
+    "nameEN": "Circle of Death",
+    "aliases": [
+      "Circle of Death",
+      "Olum Dongusu",
+      "Ölüm Döngüsü"
+    ]
   },
   {
     "name": "Ruhların Hâkimi",
@@ -3511,7 +3808,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Ruh kazanımı"
+    "note": "Ruh kazanımı",
+    "nameTR": "Ruhların Hâkimi",
+    "nameEN": "Master of Spirits",
+    "aliases": [
+      "Master of Spirits",
+      "Ruhlarin Hakimi",
+      "Ruhların Hâkimi"
+    ]
   },
   {
     "name": "Temeli Sağlam",
@@ -3533,7 +3837,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "AP ve Haste"
+    "note": "AP ve Haste",
+    "nameTR": "Temeli Sağlam",
+    "nameEN": "Foundation",
+    "aliases": [
+      "Foundation",
+      "Temeli Saglam",
+      "Temeli Sağlam"
+    ]
   },
   {
     "name": "Uğursuz Ahit",
@@ -3555,7 +3866,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Can karşılığı AP"
+    "note": "Can karşılığı AP",
+    "nameTR": "Uğursuz Ahit",
+    "nameEN": "Demonic Pact",
+    "aliases": [
+      "Demonic Pact",
+      "Ugursuz Ahit",
+      "Uğursuz Ahit"
+    ]
   },
   {
     "name": "Ulti Devrimi",
@@ -3575,7 +3893,13 @@ export const augments = [
       "CC",
       "Teamfight"
     ],
-    "note": "Ulti reset/haste"
+    "note": "Ulti reset/haste",
+    "nameTR": "Ulti Devrimi",
+    "nameEN": "Ultimate Revolution",
+    "aliases": [
+      "Ulti Devrimi",
+      "Ultimate Revolution"
+    ]
   },
   {
     "name": "Ulti Uyanışı",
@@ -3596,7 +3920,14 @@ export const augments = [
     "counterTags": [
       "Teamfight"
     ],
-    "note": "Ulti hızı"
+    "note": "Ulti hızı",
+    "nameTR": "Ulti Uyanışı",
+    "nameEN": "Ultimate Roulette",
+    "aliases": [
+      "Ulti Uyanisi",
+      "Ulti Uyanışı",
+      "Ultimate Roulette"
+    ]
   },
   {
     "name": "Balo Kraliçesi",
@@ -3620,7 +3951,14 @@ export const augments = [
       "Melee",
       "Squishy"
     ],
-    "note": "Taç/Charm"
+    "note": "Taç/Charm",
+    "nameTR": "Balo Kraliçesi",
+    "nameEN": "Prom Queen",
+    "aliases": [
+      "Balo Kralicesi",
+      "Balo Kraliçesi",
+      "Prom Queen"
+    ]
   },
   {
     "name": "Baron'un Yaveri",
@@ -3643,7 +3981,13 @@ export const augments = [
     "counterTags": [
       "Wave"
     ],
-    "note": "Minyon güçlendirme"
+    "note": "Minyon güçlendirme",
+    "nameTR": "Baron'un Yaveri",
+    "nameEN": "Baron's Minion",
+    "aliases": [
+      "Baron's Minion",
+      "Baron'un Yaveri"
+    ]
   },
   {
     "name": "Ben Yavru Bir Kedişim, Annem Nerede?",
@@ -3666,7 +4010,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Takım arkadaşına yönelme"
+    "note": "Takım arkadaşına yönelme",
+    "nameTR": "Ben Yavru Bir Kedişim, Annem Nerede?",
+    "nameEN": "I Am A Kitten, Where Is My Mom?",
+    "aliases": [
+      "Ben Yavru Bir Kedisim, Annem Nerede?",
+      "Ben Yavru Bir Kedişim, Annem Nerede?",
+      "I Am A Kitten, Where Is My Mom?"
+    ]
   },
   {
     "name": "Biz Bizeyiz",
@@ -3689,7 +4040,13 @@ export const augments = [
       "Burst",
       "Teamfight"
     ],
-    "note": "Ulti yakınındakiler"
+    "note": "Ulti yakınındakiler",
+    "nameTR": "Biz Bizeyiz",
+    "nameEN": "Together Forever",
+    "aliases": [
+      "Biz Bizeyiz",
+      "Together Forever"
+    ]
   },
   {
     "name": "Camdan Top",
@@ -3711,7 +4068,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Azami can azalır, hasar artar"
+    "note": "Azami can azalır, hasar artar",
+    "nameTR": "Camdan Top",
+    "nameEN": "Glass Cannon",
+    "aliases": [
+      "Camdan Top",
+      "Glass Cannon"
+    ]
   },
   {
     "name": "Dokunulmaz",
@@ -3733,7 +4096,13 @@ export const augments = [
       "CC",
       "Burst"
     ],
-    "note": "Ulti sırasında hasar görmez"
+    "note": "Ulti sırasında hasar görmez",
+    "nameTR": "Dokunulmaz",
+    "nameEN": "Vanish",
+    "aliases": [
+      "Dokunulmaz",
+      "Vanish"
+    ]
   },
   {
     "name": "Düşen Kapibara",
@@ -3755,7 +4124,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Büyü patlaması"
+    "note": "Büyü patlaması",
+    "nameTR": "Düşen Kapibara",
+    "nameEN": "Falling Capybara",
+    "aliases": [
+      "Dusen Kapibara",
+      "Düşen Kapibara",
+      "Falling Capybara"
+    ]
   },
   {
     "name": "Geliştirme: Seher Kılıcı",
@@ -3777,7 +4153,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Saldırı sonrası iyileşme"
+    "note": "Saldırı sonrası iyileşme",
+    "nameTR": "Geliştirme: Seher Kılıcı",
+    "nameEN": "Item Upgrade: Dawnblade",
+    "aliases": [
+      "Gelistirme: Seher Kilici",
+      "Geliştirme: Seher Kılıcı",
+      "Item Upgrade: Dawnblade"
+    ]
   },
   {
     "name": "Görev: URF Şampiyonu",
@@ -3798,7 +4181,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Kill odaklı"
+    "note": "Kill odaklı",
+    "nameTR": "Görev: URF Şampiyonu",
+    "nameEN": "Quest: URF Champion",
+    "aliases": [
+      "Gorev: URF Sampiyonu",
+      "Görev: URF Şampiyonu",
+      "Quest: URF Champion"
+    ]
   },
   {
     "name": "Gözünü Dört Aç Kapkek!",
@@ -3820,7 +4210,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Kapkek altın"
+    "note": "Kapkek altın",
+    "nameTR": "Gözünü Dört Aç Kapkek!",
+    "nameEN": "Watch Out Cupcake!",
+    "aliases": [
+      "Gozunu Dort Ac Kapkek!",
+      "Gözünü Dört Aç Kapkek!",
+      "Watch Out Cupcake!"
+    ]
   },
   {
     "name": "İsabet Dehası",
@@ -3844,7 +4241,14 @@ export const augments = [
       "Range",
       "Squishy"
     ],
-    "note": "Uzaktan hasar"
+    "note": "Uzaktan hasar",
+    "nameTR": "İsabet Dehası",
+    "nameEN": "Trueshot Prodigy",
+    "aliases": [
+      "Isabet Dehasi",
+      "Trueshot Prodigy",
+      "İsabet Dehası"
+    ]
   },
   {
     "name": "İyileştirme Lazeri",
@@ -3868,7 +4272,14 @@ export const augments = [
       "Poke",
       "Dive"
     ],
-    "note": "Takım heal"
+    "note": "Takım heal",
+    "nameTR": "İyileştirme Lazeri",
+    "nameEN": "Healing Laser",
+    "aliases": [
+      "Healing Laser",
+      "Iyilestirme Lazeri",
+      "İyileştirme Lazeri"
+    ]
   },
   {
     "name": "Kılıç Valsi",
@@ -3892,7 +4303,14 @@ export const augments = [
       "Tank",
       "Squishy"
     ],
-    "note": "Sihirdar büyüsü"
+    "note": "Sihirdar büyüsü",
+    "nameTR": "Kılıç Valsi",
+    "nameEN": "Blade Waltz",
+    "aliases": [
+      "Blade Waltz",
+      "Kilic Valsi",
+      "Kılıç Valsi"
+    ]
   },
   {
     "name": "Kuantum Teknolojisi",
@@ -3914,7 +4332,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Hibrit teknoloji"
+    "note": "Hibrit teknoloji",
+    "nameTR": "Kuantum Teknolojisi",
+    "nameEN": "Quantum Computing",
+    "aliases": [
+      "Kuantum Teknolojisi",
+      "Quantum Computing"
+    ]
   },
   {
     "name": "Kudret",
@@ -3938,7 +4362,13 @@ export const augments = [
       "Poke",
       "Burst"
     ],
-    "note": "Heal/kalkan güçlendirir"
+    "note": "Heal/kalkan güçlendirir",
+    "nameTR": "Kudret",
+    "nameEN": "Courage",
+    "aliases": [
+      "Courage",
+      "Kudret"
+    ]
   },
   {
     "name": "Minik Şeytan",
@@ -3960,7 +4390,14 @@ export const augments = [
     "counterTags": [
       "Tank"
     ],
-    "note": "Can yakma"
+    "note": "Can yakma",
+    "nameTR": "Minik Şeytan",
+    "nameEN": "Lil Demon",
+    "aliases": [
+      "Lil Demon",
+      "Minik Seytan",
+      "Minik Şeytan"
+    ]
   },
   {
     "name": "Peri Büyüsü",
@@ -3982,7 +4419,14 @@ export const augments = [
       "Burst",
       "CC"
     ],
-    "note": "Ulti sonrası hasar görmez"
+    "note": "Ulti sonrası hasar görmez",
+    "nameTR": "Peri Büyüsü",
+    "nameEN": "Fairy Magic",
+    "aliases": [
+      "Fairy Magic",
+      "Peri Buyusu",
+      "Peri Büyüsü"
+    ]
   },
   {
     "name": "Poro Kralı Zıplayışı",
@@ -4004,7 +4448,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Poro kralı çağırma"
+    "note": "Poro kralı çağırma",
+    "nameTR": "Poro Kralı Zıplayışı",
+    "nameEN": "Poro King Leap",
+    "aliases": [
+      "Poro King Leap",
+      "Poro Krali Ziplayisi",
+      "Poro Kralı Zıplayışı"
+    ]
   },
   {
     "name": "Protein İçeceği",
@@ -4028,7 +4479,14 @@ export const augments = [
       "Poke",
       "LongFight"
     ],
-    "note": "İyileşme/kalkan HP"
+    "note": "İyileşme/kalkan HP",
+    "nameTR": "Protein İçeceği",
+    "nameEN": "Protein Shake",
+    "aliases": [
+      "Protein Icecegi",
+      "Protein Shake",
+      "Protein İçeceği"
+    ]
   },
   {
     "name": "Sıcağı Hisset",
@@ -4051,7 +4509,14 @@ export const augments = [
       "Melee",
       "Tank"
     ],
-    "note": "Yakın yanma"
+    "note": "Yakın yanma",
+    "nameTR": "Sıcağı Hisset",
+    "nameEN": "Feel the Burn",
+    "aliases": [
+      "Feel the Burn",
+      "Sicagi Hisset",
+      "Sıcağı Hisset"
+    ]
   },
   {
     "name": "Tetikli Cehennem",
@@ -4074,7 +4539,13 @@ export const augments = [
     "counterTags": [
       "Teamfight"
     ],
-    "note": "Deliliğin yeteneği"
+    "note": "Deliliğin yeteneği",
+    "nameTR": "Tetikli Cehennem",
+    "nameEN": "Hellfire Trigger",
+    "aliases": [
+      "Hellfire Trigger",
+      "Tetikli Cehennem"
+    ]
   },
   {
     "name": "Toprağın Uyanışı",
@@ -4096,7 +4567,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Atlama sonrası patlama"
+    "note": "Atlama sonrası patlama",
+    "nameTR": "Toprağın Uyanışı",
+    "nameEN": "Earthwake",
+    "aliases": [
+      "Earthwake",
+      "Topragin Uyanisi",
+      "Toprağın Uyanışı"
+    ]
   },
   {
     "name": "Artçı Büyü",
@@ -4117,7 +4595,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Büyü sonrası patlama"
+    "note": "Büyü sonrası patlama",
+    "nameTR": "Artçı Büyü",
+    "nameEN": "Afterspell",
+    "aliases": [
+      "Afterspell",
+      "Artci Buyu",
+      "Artçı Büyü"
+    ]
   },
   {
     "name": "Ayakkabı Koleksiyoncusu",
@@ -4138,7 +4623,14 @@ export const augments = [
     "counterTags": [
       "Skillshot"
     ],
-    "note": "Çizme görevi"
+    "note": "Çizme görevi",
+    "nameTR": "Ayakkabı Koleksiyoncusu",
+    "nameEN": "Boot Collector",
+    "aliases": [
+      "Ayakkabi Koleksiyoncusu",
+      "Ayakkabı Koleksiyoncusu",
+      "Boot Collector"
+    ]
   },
   {
     "name": "Lazer Gözler",
@@ -4160,7 +4652,14 @@ export const augments = [
       "Melee",
       "Tank"
     ],
-    "note": "Dönük yöne lazer"
+    "note": "Dönük yöne lazer",
+    "nameTR": "Lazer Gözler",
+    "nameEN": "Laser Eyes",
+    "aliases": [
+      "Laser Eyes",
+      "Lazer Gozler",
+      "Lazer Gözler"
+    ]
   },
   {
     "name": "Acayip Kötülük",
@@ -4181,7 +4680,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Yetenek hasarı -> AP"
+    "note": "Yetenek hasarı -> AP",
+    "nameTR": "Acayip Kötülük",
+    "nameEN": "Phenomenal Evil",
+    "aliases": [
+      "Acayip Kotuluk",
+      "Acayip Kötülük",
+      "Phenomenal Evil"
+    ]
   },
   {
     "name": "Baştan Sona",
@@ -4203,7 +4709,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "İlk vuruş rünleri"
+    "note": "İlk vuruş rünleri",
+    "nameTR": "Baştan Sona",
+    "nameEN": "From Beginning to End",
+    "aliases": [
+      "Bastan Sona",
+      "Baştan Sona",
+      "From Beginning to End"
+    ]
   },
   {
     "name": "Büyü Atışı",
@@ -4227,7 +4740,14 @@ export const augments = [
       "Squishy",
       "Range"
     ],
-    "note": "Havai fişek"
+    "note": "Havai fişek",
+    "nameTR": "Büyü Atışı",
+    "nameEN": "Magic Missile",
+    "aliases": [
+      "Buyu Atisi",
+      "Büyü Atışı",
+      "Magic Missile"
+    ]
   },
   {
     "name": "Büyükanne'nin Biberli Yağı",
@@ -4249,7 +4769,14 @@ export const augments = [
       "Tank",
       "Bruiser"
     ],
-    "note": "Biberli yağ yakma"
+    "note": "Biberli yağ yakma",
+    "nameTR": "Büyükanne'nin Biberli Yağı",
+    "nameEN": "Grandma's Spicy Oil",
+    "aliases": [
+      "Buyukanne'nin Biberli Yagi",
+      "Büyükanne'nin Biberli Yağı",
+      "Grandma's Spicy Oil"
+    ]
   },
   {
     "name": "Cellat",
@@ -4272,7 +4799,13 @@ export const augments = [
       "LowHP",
       "Squishy"
     ],
-    "note": "Execute"
+    "note": "Execute",
+    "nameTR": "Cellat",
+    "nameEN": "Executioner",
+    "aliases": [
+      "Cellat",
+      "Executioner"
+    ]
   },
   {
     "name": "Daha Büyük Dürbünlü Silahlar",
@@ -4294,7 +4827,14 @@ export const augments = [
     "counterTags": [
       "ShortRange"
     ],
-    "note": "Daha fazla menzil"
+    "note": "Daha fazla menzil",
+    "nameTR": "Daha Büyük Dürbünlü Silahlar",
+    "nameEN": "Big Scoped Weapons",
+    "aliases": [
+      "Big Scoped Weapons",
+      "Daha Buyuk Durbunlu Silahlar",
+      "Daha Büyük Dürbünlü Silahlar"
+    ]
   },
   {
     "name": "Geliştirme: Kibir",
@@ -4316,7 +4856,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Kill sonrası yenilenme"
+    "note": "Kill sonrası yenilenme",
+    "nameTR": "Geliştirme: Kibir",
+    "nameEN": "Item Upgrade: Hubris",
+    "aliases": [
+      "Gelistirme: Kibir",
+      "Geliştirme: Kibir",
+      "Item Upgrade: Hubris"
+    ]
   },
   {
     "name": "Görev: Paslanmaz Yürek",
@@ -4338,7 +4885,14 @@ export const augments = [
       "Burst",
       "LongFight"
     ],
-    "note": "HP kasma"
+    "note": "HP kasma",
+    "nameTR": "Görev: Paslanmaz Yürek",
+    "nameEN": "Quest: Steel Your Heart",
+    "aliases": [
+      "Gorev: Paslanmaz Yurek",
+      "Görev: Paslanmaz Yürek",
+      "Quest: Steel Your Heart"
+    ]
   },
   {
     "name": "İğne Deliğinden",
@@ -4360,7 +4914,14 @@ export const augments = [
       "Tank",
       "HP"
     ],
-    "note": "Zırh delme"
+    "note": "Zırh delme",
+    "nameTR": "İğne Deliğinden",
+    "nameEN": "Thread the Needle",
+    "aliases": [
+      "Igne Deliginden",
+      "Thread the Needle",
+      "İğne Deliğinden"
+    ]
   },
   {
     "name": "Katliam Vakti",
@@ -4382,7 +4943,13 @@ export const augments = [
       "Teamfight",
       "Squishy"
     ],
-    "note": "Ulti sonrası hasar"
+    "note": "Ulti sonrası hasar",
+    "nameTR": "Katliam Vakti",
+    "nameEN": "It's Killing Time",
+    "aliases": [
+      "It's Killing Time",
+      "Katliam Vakti"
+    ]
   },
   {
     "name": "Kırmızı Zarf",
@@ -4402,7 +4969,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Altın ve nitelik"
+    "note": "Altın ve nitelik",
+    "nameTR": "Kırmızı Zarf",
+    "nameEN": "Red Envelope",
+    "aliases": [
+      "Kirmizi Zarf",
+      "Kırmızı Zarf",
+      "Red Envelope"
+    ]
   },
   {
     "name": "Kritik Atış",
@@ -4423,7 +4997,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Fişekler crit"
+    "note": "Fişekler crit",
+    "nameTR": "Kritik Atış",
+    "nameEN": "Critical Strike",
+    "aliases": [
+      "Critical Strike",
+      "Kritik Atis",
+      "Kritik Atış"
+    ]
   },
   {
     "name": "Kritik Bitim",
@@ -4444,7 +5025,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Crit scaling"
+    "note": "Crit scaling",
+    "nameTR": "Kritik Bitim",
+    "nameEN": "Critical Finish",
+    "aliases": [
+      "Critical Finish",
+      "Kritik Bitim"
+    ]
   },
   {
     "name": "Lokomotif",
@@ -4465,7 +5052,13 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Boyut/can"
+    "note": "Boyut/can",
+    "nameTR": "Lokomotif",
+    "nameEN": "Raid Boss",
+    "aliases": [
+      "Lokomotif",
+      "Raid Boss"
+    ]
   },
   {
     "name": "Metanet",
@@ -4486,7 +5079,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Can yenilemesi"
+    "note": "Can yenilemesi",
+    "nameTR": "Metanet",
+    "nameEN": "Perseverance",
+    "aliases": [
+      "Metanet",
+      "Perseverance"
+    ]
   },
   {
     "name": "Poro Ateşleyici",
@@ -4507,7 +5106,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Poro hasarı"
+    "note": "Poro hasarı",
+    "nameTR": "Poro Ateşleyici",
+    "nameEN": "Poro Launcher",
+    "aliases": [
+      "Poro Atesleyici",
+      "Poro Ateşleyici",
+      "Poro Launcher"
+    ]
   },
   {
     "name": "Rubyen",
@@ -4529,7 +5135,13 @@ export const augments = [
       "Mobility",
       "Assassin"
     ],
-    "note": "Hareketsiz bırakma"
+    "note": "Hareketsiz bırakma",
+    "nameTR": "Rubyen",
+    "nameEN": "Rabble Rousing",
+    "aliases": [
+      "Rabble Rousing",
+      "Rubyen"
+    ]
   },
   {
     "name": "Semavi Beden",
@@ -4549,7 +5161,13 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "1500 can"
+    "note": "1500 can",
+    "nameTR": "Semavi Beden",
+    "nameEN": "Celestial Body",
+    "aliases": [
+      "Celestial Body",
+      "Semavi Beden"
+    ]
   },
   {
     "name": "Simya: Prizmatik",
@@ -4570,7 +5188,13 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Rasgele prizmatik"
+    "note": "Rasgele prizmatik",
+    "nameTR": "Simya: Prizmatik",
+    "nameEN": "Transmute: Prismatic",
+    "aliases": [
+      "Simya: Prizmatik",
+      "Transmute: Prismatic"
+    ]
   },
   {
     "name": "Ters Lokomotif",
@@ -4592,7 +5216,13 @@ export const augments = [
       "Skillshot",
       "Poke"
     ],
-    "note": "Küçülme/hız"
+    "note": "Küçülme/hız",
+    "nameTR": "Ters Lokomotif",
+    "nameEN": "Reverse Raid Boss",
+    "aliases": [
+      "Reverse Raid Boss",
+      "Ters Lokomotif"
+    ]
   },
   {
     "name": "Vampirlik",
@@ -4613,7 +5243,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "İyileşme"
+    "note": "İyileşme",
+    "nameTR": "Vampirlik",
+    "nameEN": "Vulnerability",
+    "aliases": [
+      "Vampirlik",
+      "Vulnerability"
+    ]
   },
   {
     "name": "Yıldırım Darbeleri",
@@ -4635,7 +5271,14 @@ export const augments = [
       "Tank",
       "Squishy"
     ],
-    "note": "İsabette yıldırım"
+    "note": "İsabette yıldırım",
+    "nameTR": "Yıldırım Darbeleri",
+    "nameEN": "Lightning Strikes",
+    "aliases": [
+      "Lightning Strikes",
+      "Yildirim Darbeleri",
+      "Yıldırım Darbeleri"
+    ]
   },
   {
     "name": "Anahtar Rün Sihirbazı",
@@ -4656,7 +5299,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Rün kazanımı"
+    "note": "Rün kazanımı",
+    "nameTR": "Anahtar Rün Sihirbazı",
+    "nameEN": "Keystone Conjurer",
+    "aliases": [
+      "Anahtar Run Sihirbazi",
+      "Anahtar Rün Sihirbazı",
+      "Keystone Conjurer"
+    ]
   },
   {
     "name": "Ay Çok Heyecanlı!",
@@ -4676,7 +5326,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Katledince hız"
+    "note": "Katledince hız",
+    "nameTR": "Ay Çok Heyecanlı!",
+    "nameEN": "Now You See Me",
+    "aliases": [
+      "Ay Cok Heyecanli!",
+      "Ay Çok Heyecanlı!",
+      "Now You See Me"
+    ]
   },
   {
     "name": "Bağış",
@@ -4695,7 +5352,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Altın"
+    "note": "Altın",
+    "nameTR": "Bağış",
+    "nameEN": "Donation",
+    "aliases": [
+      "Bagis",
+      "Bağış",
+      "Donation"
+    ]
   },
   {
     "name": "Çifte Tesirli",
@@ -4715,7 +5379,14 @@ export const augments = [
     "counterTags": [
       "Tank"
     ],
-    "note": "Çift isabet"
+    "note": "Çift isabet",
+    "nameTR": "Çifte Tesirli",
+    "nameEN": "Double Down",
+    "aliases": [
+      "Cifte Tesirli",
+      "Double Down",
+      "Çifte Tesirli"
+    ]
   },
   {
     "name": "Efsunlu Saldırılar",
@@ -4736,7 +5407,14 @@ export const augments = [
       "Tank",
       "Squishy"
     ],
-    "note": "Saldırı -> büyü hasarı"
+    "note": "Saldırı -> büyü hasarı",
+    "nameTR": "Efsunlu Saldırılar",
+    "nameEN": "Spellwake",
+    "aliases": [
+      "Efsunlu Saldirilar",
+      "Efsunlu Saldırılar",
+      "Spellwake"
+    ]
   },
   {
     "name": "Geliştirme: Ebedi Kılıç",
@@ -4756,7 +5434,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Crit ve altın"
+    "note": "Crit ve altın",
+    "nameTR": "Geliştirme: Ebedi Kılıç",
+    "nameEN": "Item Upgrade: Infinity Edge",
+    "aliases": [
+      "Gelistirme: Ebedi Kilic",
+      "Geliştirme: Ebedi Kılıç",
+      "Item Upgrade: Infinity Edge"
+    ]
   },
   {
     "name": "Kartopu Geliştirmesi",
@@ -4777,7 +5462,14 @@ export const augments = [
       "Poke",
       "Range"
     ],
-    "note": "Kartopu patlama"
+    "note": "Kartopu patlama",
+    "nameTR": "Kartopu Geliştirmesi",
+    "nameEN": "Snowball Upgrade",
+    "aliases": [
+      "Kartopu Gelistirmesi",
+      "Kartopu Geliştirmesi",
+      "Snowball Upgrade"
+    ]
   },
   {
     "name": "Kritik İyileştirme",
@@ -4797,7 +5489,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "İyileşme crit"
+    "note": "İyileşme crit",
+    "nameTR": "Kritik İyileştirme",
+    "nameEN": "Critical Healing",
+    "aliases": [
+      "Critical Healing",
+      "Kritik Iyilestirme",
+      "Kritik İyileştirme"
+    ]
   },
   {
     "name": "Ruh Sömürüsü",
@@ -4817,7 +5516,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Kritik hasar"
+    "note": "Kritik hasar",
+    "nameTR": "Ruh Sömürüsü",
+    "nameEN": "Soul Siphon",
+    "aliases": [
+      "Ruh Somurusu",
+      "Ruh Sömürüsü",
+      "Soul Siphon"
+    ]
   },
   {
     "name": "Ruhun Arındırma",
@@ -4839,7 +5545,14 @@ export const augments = [
       "Tank",
       "Melee"
     ],
-    "note": "Yavaşlatma patlar"
+    "note": "Yavaşlatma patlar",
+    "nameTR": "Ruhun Arındırma",
+    "nameEN": "Spirit Link",
+    "aliases": [
+      "Ruhun Arindirma",
+      "Ruhun Arındırma",
+      "Spirit Link"
+    ]
   },
   {
     "name": "Taşkın",
@@ -4859,7 +5572,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Mana bedeli bonus"
+    "note": "Mana bedeli bonus",
+    "nameTR": "Taşkın",
+    "nameEN": "Overflow",
+    "aliases": [
+      "Overflow",
+      "Taskin",
+      "Taşkın"
+    ]
   },
   {
     "name": "Yağlı Ekmek",
@@ -4878,7 +5598,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Q hız"
+    "note": "Q hız",
+    "nameTR": "Yağlı Ekmek",
+    "nameEN": "Bread And Butter",
+    "aliases": [
+      "Bread And Butter",
+      "Yagli Ekmek",
+      "Yağlı Ekmek"
+    ]
   },
   {
     "name": "Yakıcı Damga",
@@ -4899,7 +5626,14 @@ export const augments = [
       "Tank",
       "Bruiser"
     ],
-    "note": "Yakma etkisi"
+    "note": "Yakma etkisi",
+    "nameTR": "Yakıcı Damga",
+    "nameEN": "Firebrand",
+    "aliases": [
+      "Firebrand",
+      "Yakici Damga",
+      "Yakıcı Damga"
+    ]
   },
   {
     "name": "Yaman Kavga",
@@ -4921,7 +5655,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Yetenekle can"
+    "note": "Yetenekle can",
+    "nameTR": "Yaman Kavga",
+    "nameEN": "Goredrink",
+    "aliases": [
+      "Goredrink",
+      "Yaman Kavga"
+    ]
   },
   {
     "name": "Yetenekli Keskin Nişancı",
@@ -4944,7 +5684,14 @@ export const augments = [
       "Range",
       "Squishy"
     ],
-    "note": "Uzaktan isabet"
+    "note": "Uzaktan isabet",
+    "nameTR": "Yetenekli Keskin Nişancı",
+    "nameEN": "Skilled Sniper",
+    "aliases": [
+      "Skilled Sniper",
+      "Yetenekli Keskin Nisanci",
+      "Yetenekli Keskin Nişancı"
+    ]
   },
   {
     "name": "Yineleme",
@@ -4966,7 +5713,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "60 yetenek hızı"
+    "note": "60 yetenek hızı",
+    "nameTR": "Yineleme",
+    "nameEN": "Recursion",
+    "aliases": [
+      "Recursion",
+      "Yineleme"
+    ]
   },
   {
     "name": "Zafiyet",
@@ -4989,7 +5742,13 @@ export const augments = [
       "Tank",
       "LongFight"
     ],
-    "note": "Zamanla hasar crit"
+    "note": "Zamanla hasar crit",
+    "nameTR": "Zafiyet",
+    "nameEN": "Vulnerability",
+    "aliases": [
+      "Vulnerability",
+      "Zafiyet"
+    ]
   },
   {
     "name": "Çifte İsabet",
@@ -5012,7 +5771,14 @@ export const augments = [
       "Squishy",
       "Tank"
     ],
-    "note": "Kritik etki tekrar"
+    "note": "Kritik etki tekrar",
+    "nameTR": "Çifte İsabet",
+    "nameEN": "Twice Thrice",
+    "aliases": [
+      "Cifte Isabet",
+      "Twice Thrice",
+      "Çifte İsabet"
+    ]
   },
   {
     "name": "Çok Kritik",
@@ -5033,7 +5799,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Kritik vuruş"
+    "note": "Kritik vuruş",
+    "nameTR": "Çok Kritik",
+    "nameEN": "Critical Master",
+    "aliases": [
+      "Cok Kritik",
+      "Critical Master",
+      "Çok Kritik"
+    ]
   },
   {
     "name": "Dönerse Senindir",
@@ -5054,7 +5827,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Bumerang"
+    "note": "Bumerang",
+    "nameTR": "Dönerse Senindir",
+    "nameEN": "If It Spins, It Wins",
+    "aliases": [
+      "Donerse Senindir",
+      "Dönerse Senindir",
+      "If It Spins, It Wins"
+    ]
   },
   {
     "name": "Geçilmez",
@@ -5075,7 +5855,14 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Aftershock rünleri"
+    "note": "Aftershock rünleri",
+    "nameTR": "Geçilmez",
+    "nameEN": "Impassable",
+    "aliases": [
+      "Gecilmez",
+      "Geçilmez",
+      "Impassable"
+    ]
   },
   {
     "name": "Görünmez Avcılık",
@@ -5097,7 +5884,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Görünmez olma"
+    "note": "Görünmez olma",
+    "nameTR": "Görünmez Avcılık",
+    "nameEN": "Outlaw's Grit",
+    "aliases": [
+      "Gorunmez Avcilik",
+      "Görünmez Avcılık",
+      "Outlaw's Grit"
+    ]
   },
   {
     "name": "İblis Dansı",
@@ -5119,7 +5913,14 @@ export const augments = [
       "Squishy",
       "Tank"
     ],
-    "note": "Hayalet dansı rünleri"
+    "note": "Hayalet dansı rünleri",
+    "nameTR": "İblis Dansı",
+    "nameEN": "Demon Dance",
+    "aliases": [
+      "Demon Dance",
+      "Iblis Dansi",
+      "İblis Dansı"
+    ]
   },
   {
     "name": "İlahi Müdahale",
@@ -5142,7 +5943,14 @@ export const augments = [
       "Burst",
       "CC"
     ],
-    "note": "Yıldız koruma"
+    "note": "Yıldız koruma",
+    "nameTR": "İlahi Müdahale",
+    "nameEN": "Divine Intervention",
+    "aliases": [
+      "Divine Intervention",
+      "Ilahi Mudahale",
+      "İlahi Müdahale"
+    ]
   },
   {
     "name": "Kanun Kaçağı Cesareti",
@@ -5164,7 +5972,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Atlama ile hasar"
+    "note": "Atlama ile hasar",
+    "nameTR": "Kanun Kaçağı Cesareti",
+    "nameEN": "Outlaw's Grit",
+    "aliases": [
+      "Kanun Kacagi Cesareti",
+      "Kanun Kaçağı Cesareti",
+      "Outlaw's Grit"
+    ]
   },
   {
     "name": "Kartopu Ruleti",
@@ -5185,7 +6000,13 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Kartopu highroll"
+    "note": "Kartopu highroll",
+    "nameTR": "Kartopu Ruleti",
+    "nameEN": "Snowball Roulette",
+    "aliases": [
+      "Kartopu Ruleti",
+      "Snowball Roulette"
+    ]
   },
   {
     "name": "Oyunbozan",
@@ -5206,7 +6027,13 @@ export const augments = [
     "counterTags": [
       "Engage"
     ],
-    "note": "Eşya bozma"
+    "note": "Eşya bozma",
+    "nameTR": "Oyunbozan",
+    "nameEN": "Gamebreaker",
+    "aliases": [
+      "Gamebreaker",
+      "Oyunbozan"
+    ]
   },
   {
     "name": "Peynirli Ekmek",
@@ -5227,7 +6054,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "E yeteneği hızı"
+    "note": "E yeteneği hızı",
+    "nameTR": "Peynirli Ekmek",
+    "nameEN": "Bread And Cheese",
+    "aliases": [
+      "Bread And Cheese",
+      "Peynirli Ekmek"
+    ]
   },
   {
     "name": "Seken Kartopu",
@@ -5249,7 +6082,13 @@ export const augments = [
     "counterTags": [
       "Range"
     ],
-    "note": "Sekme"
+    "note": "Sekme",
+    "nameTR": "Seken Kartopu",
+    "nameEN": "Bouncing Snowball",
+    "aliases": [
+      "Bouncing Snowball",
+      "Seken Kartopu"
+    ]
   },
   {
     "name": "Son Şehir Treni",
@@ -5270,7 +6109,14 @@ export const augments = [
     "counterTags": [
       "Teamfight"
     ],
-    "note": "Öldükten sonra value"
+    "note": "Öldükten sonra value",
+    "nameTR": "Son Şehir Treni",
+    "nameEN": "Last City Train",
+    "aliases": [
+      "Last City Train",
+      "Son Sehir Treni",
+      "Son Şehir Treni"
+    ]
   },
   {
     "name": "Sonat",
@@ -5293,7 +6139,13 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Şarkı otomatik"
+    "note": "Şarkı otomatik",
+    "nameTR": "Sonat",
+    "nameEN": "Sonic Boom",
+    "aliases": [
+      "Sonat",
+      "Sonic Boom"
+    ]
   },
   {
     "name": "Zekâ Küpü",
@@ -5315,7 +6167,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Mana/AP/kalkan"
+    "note": "Mana/AP/kalkan",
+    "nameTR": "Zekâ Küpü",
+    "nameEN": "Big Brain",
+    "aliases": [
+      "Big Brain",
+      "Zeka Kupu",
+      "Zekâ Küpü"
+    ]
   },
   {
     "name": "Ağır El",
@@ -5336,7 +6195,14 @@ export const augments = [
     "counterTags": [
       "Tank"
     ],
-    "note": "AD -> AS"
+    "note": "AD -> AS",
+    "nameTR": "Ağır El",
+    "nameEN": "Heavy Hitter",
+    "aliases": [
+      "Agir El",
+      "Ağır El",
+      "Heavy Hitter"
+    ]
   },
   {
     "name": "Büyüme Çağı",
@@ -5357,7 +6223,14 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Boyut artar"
+    "note": "Boyut artar",
+    "nameTR": "Büyüme Çağı",
+    "nameEN": "Growth Spurt",
+    "aliases": [
+      "Buyume Cagi",
+      "Büyüme Çağı",
+      "Growth Spurt"
+    ]
   },
   {
     "name": "Dâhi Mucit",
@@ -5377,7 +6250,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Eşya hızı"
+    "note": "Eşya hızı",
+    "nameTR": "Dâhi Mucit",
+    "nameEN": "Genius Inventor",
+    "aliases": [
+      "Dahi Mucit",
+      "Dâhi Mucit",
+      "Genius Inventor"
+    ]
   },
   {
     "name": "Geliştirme: Pırıltı",
@@ -5399,7 +6279,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Heal ve hasar"
+    "note": "Heal ve hasar",
+    "nameTR": "Geliştirme: Pırıltı",
+    "nameEN": "Item Upgrade: Moonstone Renewer",
+    "aliases": [
+      "Gelistirme: Pirilti",
+      "Geliştirme: Pırıltı",
+      "Item Upgrade: Moonstone Renewer"
+    ]
   },
   {
     "name": "Hepsi Senin İçin",
@@ -5420,7 +6307,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Takım arkadaşı güçlendirme"
+    "note": "Takım arkadaşı güçlendirme",
+    "nameTR": "Hepsi Senin İçin",
+    "nameEN": "All For You",
+    "aliases": [
+      "All For You",
+      "Hepsi Senin Icin",
+      "Hepsi Senin İçin"
+    ]
   },
   {
     "name": "Kutlu Ateş",
@@ -5443,7 +6337,14 @@ export const augments = [
       "Tank",
       "HP"
     ],
-    "note": "Boyut düşürür"
+    "note": "Boyut düşürür",
+    "nameTR": "Kutlu Ateş",
+    "nameEN": "Holy Fire",
+    "aliases": [
+      "Holy Fire",
+      "Kutlu Ates",
+      "Kutlu Ateş"
+    ]
   },
   {
     "name": "Küçültme Işını",
@@ -5466,7 +6367,14 @@ export const augments = [
       "Tank",
       "Bruiser"
     ],
-    "note": "Küçültme"
+    "note": "Küçültme",
+    "nameTR": "Küçültme Işını",
+    "nameEN": "Shrink Ray",
+    "aliases": [
+      "Kucultme Isini",
+      "Küçültme Işını",
+      "Shrink Ray"
+    ]
   },
   {
     "name": "Olağandışı Silah",
@@ -5489,7 +6397,14 @@ export const augments = [
       "Tank",
       "Squishy"
     ],
-    "note": "Skill-onhit"
+    "note": "Skill-onhit",
+    "nameTR": "Olağandışı Silah",
+    "nameEN": "Ethereal Weapon",
+    "aliases": [
+      "Ethereal Weapon",
+      "Olagandisi Silah",
+      "Olağandışı Silah"
+    ]
   },
   {
     "name": "Reçelli Ekmek",
@@ -5510,7 +6425,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "W yeteneği hızı"
+    "note": "W yeteneği hızı",
+    "nameTR": "Reçelli Ekmek",
+    "nameEN": "Bread And Jam",
+    "aliases": [
+      "Bread And Jam",
+      "Recelli Ekmek",
+      "Reçelli Ekmek"
+    ]
   },
   {
     "name": "Sağlam Sağlık",
@@ -5533,7 +6455,14 @@ export const augments = [
       "Poke",
       "LongFight"
     ],
-    "note": "Can yenileme"
+    "note": "Can yenileme",
+    "nameTR": "Sağlam Sağlık",
+    "nameEN": "Solid Health",
+    "aliases": [
+      "Saglam Saglik",
+      "Sağlam Sağlık",
+      "Solid Health"
+    ]
   },
   {
     "name": "Süratle",
@@ -5555,7 +6484,14 @@ export const augments = [
     "counterTags": [
       "Skillshot"
     ],
-    "note": "Hareket ettikçe heal"
+    "note": "Hareket ettikçe heal",
+    "nameTR": "Süratle",
+    "nameEN": "With Haste",
+    "aliases": [
+      "Suratle",
+      "Süratle",
+      "With Haste"
+    ]
   },
   {
     "name": "Şafakgetiren'in Azmi",
@@ -5576,7 +6512,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Hız bonusu"
+    "note": "Hız bonusu",
+    "nameTR": "Şafakgetiren'in Azmi",
+    "nameEN": "Dawnbringer's Resolve",
+    "aliases": [
+      "Dawnbringer's Resolve",
+      "Safakgetiren'in Azmi",
+      "Şafakgetiren'in Azmi"
+    ]
   },
   {
     "name": "Çekirge Gibi",
@@ -5598,7 +6541,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Sıçrama yenileme"
+    "note": "Sıçrama yenileme",
+    "nameTR": "Çekirge Gibi",
+    "nameEN": "Like A Grasshopper",
+    "aliases": [
+      "Cekirge Gibi",
+      "Like A Grasshopper",
+      "Çekirge Gibi"
+    ]
   },
   {
     "name": "Kavuran Şafak",
@@ -5620,7 +6570,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "İşaretli hedef"
+    "note": "İşaretli hedef",
+    "nameTR": "Kavuran Şafak",
+    "nameEN": "Scorching Dawn",
+    "aliases": [
+      "Kavuran Safak",
+      "Kavuran Şafak",
+      "Scorching Dawn"
+    ]
   },
   {
     "name": "Seçkin Kuvvetler",
@@ -5641,7 +6598,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Çağrılar güçlenir"
+    "note": "Çağrılar güçlenir",
+    "nameTR": "Seçkin Kuvvetler",
+    "nameEN": "Elite Forces",
+    "aliases": [
+      "Elite Forces",
+      "Seckin Kuvvetler",
+      "Seçkin Kuvvetler"
+    ]
   },
   {
     "name": "Abra Kadabra",
@@ -5663,7 +6627,12 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Yetenek gücü"
+    "note": "Yetenek gücü",
+    "nameTR": "Abra Kadabra",
+    "nameEN": "Abra Kadabra",
+    "aliases": [
+      "Abra Kadabra"
+    ]
   },
   {
     "name": "Eli Çabuk",
@@ -5685,7 +6654,14 @@ export const augments = [
       "Tank",
       "Squishy"
     ],
-    "note": "Saldırı hızı"
+    "note": "Saldırı hızı",
+    "nameTR": "Eli Çabuk",
+    "nameEN": "Deft",
+    "aliases": [
+      "Deft",
+      "Eli Cabuk",
+      "Eli Çabuk"
+    ]
   },
   {
     "name": "Eylemsizlik Kanunu",
@@ -5707,7 +6683,13 @@ export const augments = [
       "Mobility",
       "Squishy"
     ],
-    "note": "Hareketsiz bırakınca güç"
+    "note": "Hareketsiz bırakınca güç",
+    "nameTR": "Eylemsizlik Kanunu",
+    "nameEN": "Inertia",
+    "aliases": [
+      "Eylemsizlik Kanunu",
+      "Inertia"
+    ]
   },
   {
     "name": "Kana Kana",
@@ -5728,7 +6710,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Mutlak sömürü"
+    "note": "Mutlak sömürü",
+    "nameTR": "Kana Kana",
+    "nameEN": "Goredrink",
+    "aliases": [
+      "Goredrink",
+      "Kana Kana"
+    ]
   },
   {
     "name": "Planlı Gösteri",
@@ -5750,7 +6738,14 @@ export const augments = [
       "Poke",
       "Squishy"
     ],
-    "note": "Cooldown azaltma"
+    "note": "Cooldown azaltma",
+    "nameTR": "Planlı Gösteri",
+    "nameEN": "Combo Master",
+    "aliases": [
+      "Combo Master",
+      "Planli Gosteri",
+      "Planlı Gösteri"
+    ]
   },
   {
     "name": "Simya: Altın",
@@ -5769,7 +6764,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Altın eklenti"
+    "note": "Altın eklenti",
+    "nameTR": "Simya: Altın",
+    "nameEN": "Transmute: Gold",
+    "aliases": [
+      "Simya: Altin",
+      "Simya: Altın",
+      "Transmute: Gold"
+    ]
   },
   {
     "name": "Tayfun",
@@ -5792,7 +6794,13 @@ export const augments = [
       "Squishy",
       "Teamfight"
     ],
-    "note": "Havai fişek"
+    "note": "Havai fişek",
+    "nameTR": "Tayfun",
+    "nameEN": "Typhoon",
+    "aliases": [
+      "Tayfun",
+      "Typhoon"
+    ]
   },
   {
     "name": "Alev Ruhu",
@@ -5815,7 +6823,13 @@ export const augments = [
       "Tank",
       "LongFight"
     ],
-    "note": "Alev ruhu"
+    "note": "Alev ruhu",
+    "nameTR": "Alev Ruhu",
+    "nameEN": "Infernal Soul",
+    "aliases": [
+      "Alev Ruhu",
+      "Infernal Soul"
+    ]
   },
   {
     "name": "Ateş!",
@@ -5836,7 +6850,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Fişek atma"
+    "note": "Fişek atma",
+    "nameTR": "Ateş!",
+    "nameEN": "Fire!",
+    "aliases": [
+      "Ates!",
+      "Ateş!",
+      "Fire!"
+    ]
   },
   {
     "name": "Ateş Tilkisi",
@@ -5857,7 +6878,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Alev çemberi"
+    "note": "Alev çemberi",
+    "nameTR": "Ateş Tilkisi",
+    "nameEN": "Firefox",
+    "aliases": [
+      "Ates Tilkisi",
+      "Ateş Tilkisi",
+      "Firefox"
+    ]
   },
   {
     "name": "Buz Gibi",
@@ -5879,7 +6907,13 @@ export const augments = [
       "Mobility",
       "Melee"
     ],
-    "note": "Yavaşlatma azaltır"
+    "note": "Yavaşlatma azaltır",
+    "nameTR": "Buz Gibi",
+    "nameEN": "Ice Cold",
+    "aliases": [
+      "Buz Gibi",
+      "Ice Cold"
+    ]
   },
   {
     "name": "Dürbünlü Silahlar",
@@ -5900,7 +6934,14 @@ export const augments = [
     "counterTags": [
       "ShortRange"
     ],
-    "note": "Menzil"
+    "note": "Menzil",
+    "nameTR": "Dürbünlü Silahlar",
+    "nameEN": "Scoped Weapons",
+    "aliases": [
+      "Durbunlu Silahlar",
+      "Dürbünlü Silahlar",
+      "Scoped Weapons"
+    ]
   },
   {
     "name": "Eli Ağır",
@@ -5920,7 +6961,14 @@ export const augments = [
     "counterTags": [
       "Tank"
     ],
-    "note": "Can oranı hasar"
+    "note": "Can oranı hasar",
+    "nameTR": "Eli Ağır",
+    "nameEN": "Heavy Hitter",
+    "aliases": [
+      "Eli Agir",
+      "Eli Ağır",
+      "Heavy Hitter"
+    ]
   },
   {
     "name": "Geliştirme: Tahsildar",
@@ -5941,7 +6989,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Altın"
+    "note": "Altın",
+    "nameTR": "Geliştirme: Tahsildar",
+    "nameEN": "Item Upgrade: The Collector",
+    "aliases": [
+      "Gelistirme: Tahsildar",
+      "Geliştirme: Tahsildar",
+      "Item Upgrade: The Collector"
+    ]
   },
   {
     "name": "Gözü Dönmüş",
@@ -5962,7 +7017,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Kritik + AS"
+    "note": "Kritik + AS",
+    "nameTR": "Gözü Dönmüş",
+    "nameEN": "Bloodthirsty",
+    "aliases": [
+      "Bloodthirsty",
+      "Gozu Donmus",
+      "Gözü Dönmüş"
+    ]
   },
   {
     "name": "Hız Canavarı",
@@ -5984,7 +7046,14 @@ export const augments = [
       "Skillshot",
       "Poke"
     ],
-    "note": "Hasar sonrası hız"
+    "note": "Hasar sonrası hız",
+    "nameTR": "Hız Canavarı",
+    "nameEN": "Speed Demon",
+    "aliases": [
+      "Hiz Canavari",
+      "Hız Canavarı",
+      "Speed Demon"
+    ]
   },
   {
     "name": "İkiz Ateş",
@@ -6005,7 +7074,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Her ikinci kritik fişek"
+    "note": "Her ikinci kritik fişek",
+    "nameTR": "İkiz Ateş",
+    "nameEN": "Twice Thrice",
+    "aliases": [
+      "Ikiz Ates",
+      "Twice Thrice",
+      "İkiz Ateş"
+    ]
   },
   {
     "name": "Nitelik!",
@@ -6024,7 +7100,13 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "2 nitelik örsü"
+    "note": "2 nitelik örsü",
+    "nameTR": "Nitelik!",
+    "nameEN": "Stats!",
+    "aliases": [
+      "Nitelik!",
+      "Stats!"
+    ]
   },
   {
     "name": "Şapka Üstüne Şapka",
@@ -6044,7 +7126,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "AP ve MR"
+    "note": "AP ve MR",
+    "nameTR": "Şapka Üstüne Şapka",
+    "nameEN": "Hat Trick",
+    "aliases": [
+      "Hat Trick",
+      "Sapka Ustune Sapka",
+      "Şapka Üstüne Şapka"
+    ]
   },
   {
     "name": "Yetenek Gücüne Güç Kat",
@@ -6063,7 +7152,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "AP -> AP"
+    "note": "AP -> AP",
+    "nameTR": "Yetenek Gücüne Güç Kat",
+    "nameEN": "Ability Power to Power",
+    "aliases": [
+      "Ability Power to Power",
+      "Yetenek Gucune Guc Kat",
+      "Yetenek Gücüne Güç Kat"
+    ]
   },
   {
     "name": "Zihinden Bedene",
@@ -6083,7 +7179,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Mana -> can"
+    "note": "Mana -> can",
+    "nameTR": "Zihinden Bedene",
+    "nameEN": "Mind to Matter",
+    "aliases": [
+      "Mind to Matter",
+      "Zihinden Bedene"
+    ]
   },
   {
     "name": "Bacak Günü",
@@ -6102,7 +7204,14 @@ export const augments = [
     "counterTags": [
       "Skillshot"
     ],
-    "note": "Hız"
+    "note": "Hız",
+    "nameTR": "Bacak Günü",
+    "nameEN": "Leg Day",
+    "aliases": [
+      "Bacak Gunu",
+      "Bacak Günü",
+      "Leg Day"
+    ]
   },
   {
     "name": "Buz Hortağı",
@@ -6122,7 +7231,14 @@ export const augments = [
     "counterTags": [
       "Melee"
     ],
-    "note": "Yakın yavaşlatma"
+    "note": "Yakın yavaşlatma",
+    "nameTR": "Buz Hortağı",
+    "nameEN": "Ice Blast",
+    "aliases": [
+      "Buz Hortagi",
+      "Buz Hortağı",
+      "Ice Blast"
+    ]
   },
   {
     "name": "Çevik ve Dayanıklı",
@@ -6142,7 +7258,14 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Atlama sonrası kalkan"
+    "note": "Atlama sonrası kalkan",
+    "nameTR": "Çevik ve Dayanıklı",
+    "nameEN": "Agile and Durable",
+    "aliases": [
+      "Agile and Durable",
+      "Cevik ve Dayanikli",
+      "Çevik ve Dayanıklı"
+    ]
   },
   {
     "name": "Enerji Emici",
@@ -6163,7 +7286,13 @@ export const augments = [
     "counterTags": [
       "Mobility"
     ],
-    "note": "Hareketsiz bırakınca heal"
+    "note": "Hareketsiz bırakınca heal",
+    "nameTR": "Enerji Emici",
+    "nameEN": "Energy Drain",
+    "aliases": [
+      "Energy Drain",
+      "Enerji Emici"
+    ]
   },
   {
     "name": "Erozyon",
@@ -6183,7 +7312,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Zırh/MR eksiltme"
+    "note": "Zırh/MR eksiltme",
+    "nameTR": "Erozyon",
+    "nameEN": "Erosion",
+    "aliases": [
+      "Erosion",
+      "Erozyon"
+    ]
   },
   {
     "name": "Geliştirme: Çivili Zırh",
@@ -6203,7 +7338,14 @@ export const augments = [
       "AD",
       "AttackSpeed"
     ],
-    "note": "Hasar yansıtma"
+    "note": "Hasar yansıtma",
+    "nameTR": "Geliştirme: Çivili Zırh",
+    "nameEN": "Item Upgrade: Thornmail",
+    "aliases": [
+      "Gelistirme: Civili Zirh",
+      "Geliştirme: Çivili Zırh",
+      "Item Upgrade: Thornmail"
+    ]
   },
   {
     "name": "Geliştirme: Zhonya'nın Kumsaati",
@@ -6224,7 +7366,14 @@ export const augments = [
       "Burst",
       "CC"
     ],
-    "note": "Zhonya hızı"
+    "note": "Zhonya hızı",
+    "nameTR": "Geliştirme: Zhonya'nın Kumsaati",
+    "nameEN": "Item Upgrade: Zhonya's Hourglass",
+    "aliases": [
+      "Gelistirme: Zhonya'nin Kumsaati",
+      "Geliştirme: Zhonya'nın Kumsaati",
+      "Item Upgrade: Zhonya's Hourglass"
+    ]
   },
   {
     "name": "Gölge Koşucu",
@@ -6244,7 +7393,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Gizlilikten çıkınca hız"
+    "note": "Gizlilikten çıkınca hız",
+    "nameTR": "Gölge Koşucu",
+    "nameEN": "Shadow Runner",
+    "aliases": [
+      "Golge Kosucu",
+      "Gölge Koşucu",
+      "Shadow Runner"
+    ]
   },
   {
     "name": "Hırpalayan",
@@ -6264,7 +7420,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "AD ve haste"
+    "note": "AD ve haste",
+    "nameTR": "Hırpalayan",
+    "nameEN": "The Brutalizer",
+    "aliases": [
+      "Hirpalayan",
+      "Hırpalayan",
+      "The Brutalizer"
+    ]
   },
   {
     "name": "İlk Yardım Seti",
@@ -6284,7 +7447,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Heal kalkan gücü"
+    "note": "Heal kalkan gücü",
+    "nameTR": "İlk Yardım Seti",
+    "nameEN": "First-Aid Kit",
+    "aliases": [
+      "First-Aid Kit",
+      "Ilk Yardim Seti",
+      "İlk Yardım Seti"
+    ]
   },
   {
     "name": "İmha Mekanizması",
@@ -6304,7 +7474,14 @@ export const augments = [
     "counterTags": [
       "Melee"
     ],
-    "note": "Bomba"
+    "note": "Bomba",
+    "nameTR": "İmha Mekanizması",
+    "nameEN": "Dematerialize",
+    "aliases": [
+      "Dematerialize",
+      "Imha Mekanizmasi",
+      "İmha Mekanizması"
+    ]
   },
   {
     "name": "Kaba Kuvvet",
@@ -6324,7 +7501,13 @@ export const augments = [
     "counterTags": [
       "Tank"
     ],
-    "note": "Saldırı gücü"
+    "note": "Saldırı gücü",
+    "nameTR": "Kaba Kuvvet",
+    "nameEN": "Brute Force",
+    "aliases": [
+      "Brute Force",
+      "Kaba Kuvvet"
+    ]
   },
   {
     "name": "Kaçış Planı",
@@ -6344,7 +7527,14 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Düşük can hareket"
+    "note": "Düşük can hareket",
+    "nameTR": "Kaçış Planı",
+    "nameEN": "Escape Plan",
+    "aliases": [
+      "Escape Plan",
+      "Kacis Plani",
+      "Kaçış Planı"
+    ]
   },
   {
     "name": "Kamikaze",
@@ -6364,7 +7554,12 @@ export const augments = [
     "counterTags": [
       "Teamfight"
     ],
-    "note": "Ölünce patlama"
+    "note": "Ölünce patlama",
+    "nameTR": "Kamikaze",
+    "nameEN": "Kamikaze",
+    "aliases": [
+      "Kamikaze"
+    ]
   },
   {
     "name": "Kırmızıyla Mavinin Uyumu",
@@ -6384,7 +7579,14 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Kaynak yenileme"
+    "note": "Kaynak yenileme",
+    "nameTR": "Kırmızıyla Mavinin Uyumu",
+    "nameEN": "Red And Blue Make Purple",
+    "aliases": [
+      "Kirmiziyla Mavinin Uyumu",
+      "Kırmızıyla Mavinin Uyumu",
+      "Red And Blue Make Purple"
+    ]
   },
   {
     "name": "Okyanus Ruhu",
@@ -6403,7 +7605,13 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Hasar sonrası can/mana"
+    "note": "Hasar sonrası can/mana",
+    "nameTR": "Okyanus Ruhu",
+    "nameEN": "Ocean Soul",
+    "aliases": [
+      "Ocean Soul",
+      "Okyanus Ruhu"
+    ]
   },
   {
     "name": "Saldırı Gücüne Güç Kat",
@@ -6422,7 +7630,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "AD -> AD"
+    "note": "AD -> AD",
+    "nameTR": "Saldırı Gücüne Güç Kat",
+    "nameEN": "ADAPt",
+    "aliases": [
+      "ADAPt",
+      "Saldiri Gucune Guc Kat",
+      "Saldırı Gücüne Güç Kat"
+    ]
   },
   {
     "name": "Dağ Ruhu",
@@ -6440,7 +7655,14 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Çatışma dışı kalkan"
+    "note": "Çatışma dışı kalkan",
+    "nameTR": "Dağ Ruhu",
+    "nameEN": "Mountain Soul",
+    "aliases": [
+      "Dag Ruhu",
+      "Dağ Ruhu",
+      "Mountain Soul"
+    ]
   },
   {
     "name": "Durdurulamaz Ulti",
@@ -6460,7 +7682,13 @@ export const augments = [
     "counterTags": [
       "CC"
     ],
-    "note": "Ulti sonrası bağışıklık"
+    "note": "Ulti sonrası bağışıklık",
+    "nameTR": "Durdurulamaz Ulti",
+    "nameEN": "Ultimate Unstoppable",
+    "aliases": [
+      "Durdurulamaz Ulti",
+      "Ultimate Unstoppable"
+    ]
   },
   {
     "name": "Geliştirme: Alev Kusan",
@@ -6480,7 +7708,14 @@ export const augments = [
     "counterTags": [
       "Tank"
     ],
-    "note": "Yakma ruhu"
+    "note": "Yakma ruhu",
+    "nameTR": "Geliştirme: Alev Kusan",
+    "nameEN": "Item Upgrade: Firebreather",
+    "aliases": [
+      "Gelistirme: Alev Kusan",
+      "Geliştirme: Alev Kusan",
+      "Item Upgrade: Firebreather"
+    ]
   },
   {
     "name": "Hextech Ruhu",
@@ -6500,7 +7735,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Yıldırım"
+    "note": "Yıldırım",
+    "nameTR": "Hextech Ruhu",
+    "nameEN": "Hextech Soul",
+    "aliases": [
+      "Hextech Ruhu",
+      "Hextech Soul"
+    ]
   },
   {
     "name": "İnatçı",
@@ -6520,7 +7761,14 @@ export const augments = [
     "counterTags": [
       "CC"
     ],
-    "note": "Hareketsiz sonrası direnç"
+    "note": "Hareketsiz sonrası direnç",
+    "nameTR": "İnatçı",
+    "nameEN": "Perseverance",
+    "aliases": [
+      "Inatci",
+      "Perseverance",
+      "İnatçı"
+    ]
   },
   {
     "name": "İşkenceci",
@@ -6541,7 +7789,14 @@ export const augments = [
       "Mobility",
       "Tank"
     ],
-    "note": "Hareketsiz bırakınca hasar"
+    "note": "Hareketsiz bırakınca hasar",
+    "nameTR": "İşkenceci",
+    "nameEN": "Tormentor",
+    "aliases": [
+      "Iskenceci",
+      "Tormentor",
+      "İşkenceci"
+    ]
   },
   {
     "name": "Rüzgâr Estiren Kılıç",
@@ -6561,7 +7816,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Zırh delme ve büyü nüfuzu"
+    "note": "Zırh delme ve büyü nüfuzu",
+    "nameTR": "Rüzgâr Estiren Kılıç",
+    "nameEN": "Windblade",
+    "aliases": [
+      "Ruzgar Estiren Kilic",
+      "Rüzgâr Estiren Kılıç",
+      "Windblade"
+    ]
   },
   {
     "name": "Ses Patlaması",
@@ -6581,7 +7843,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Takım heal/kalkan hız"
+    "note": "Takım heal/kalkan hız",
+    "nameTR": "Ses Patlaması",
+    "nameEN": "Sonic Boom",
+    "aliases": [
+      "Ses Patlamasi",
+      "Ses Patlaması",
+      "Sonic Boom"
+    ]
   },
   {
     "name": "Sığınak",
@@ -6600,7 +7869,14 @@ export const augments = [
     "counterTags": [
       "Skillshot"
     ],
-    "note": "Hareket hızı"
+    "note": "Hareket hızı",
+    "nameTR": "Sığınak",
+    "nameEN": "Sanctuary",
+    "aliases": [
+      "Sanctuary",
+      "Siginak",
+      "Sığınak"
+    ]
   },
   {
     "name": "Skor Cepte",
@@ -6619,7 +7895,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Düşük cana ilerlerken hız"
+    "note": "Düşük cana ilerlerken hız",
+    "nameTR": "Skor Cepte",
+    "nameEN": "Score Secured",
+    "aliases": [
+      "Score Secured",
+      "Skor Cepte"
+    ]
   },
   {
     "name": "Ya Tankla Ya Terk Et",
@@ -6639,7 +7921,13 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Kritik savunma"
+    "note": "Kritik savunma",
+    "nameTR": "Ya Tankla Ya Terk Et",
+    "nameEN": "Tank It Or Leave It",
+    "aliases": [
+      "Tank It Or Leave It",
+      "Ya Tankla Ya Terk Et"
+    ]
   },
   {
     "name": "2. Sıçra",
@@ -6657,7 +7945,14 @@ export const augments = [
     "counterTags": [
       "Engage"
     ],
-    "note": "İkinci sıçra"
+    "note": "İkinci sıçra",
+    "nameTR": "2. Sıçra",
+    "nameEN": "Flashy",
+    "aliases": [
+      "2. Sicra",
+      "2. Sıçra",
+      "Flashy"
+    ]
   },
   {
     "name": "Doping",
@@ -6676,7 +7971,13 @@ export const augments = [
     "counterTags": [
       "Skillshot"
     ],
-    "note": "Dönme yetenekleri"
+    "note": "Dönme yetenekleri",
+    "nameTR": "Doping",
+    "nameEN": "Juice Box",
+    "aliases": [
+      "Doping",
+      "Juice Box"
+    ]
   },
   {
     "name": "Dön Kazan",
@@ -6695,7 +7996,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Mana tüketince hasar"
+    "note": "Mana tüketince hasar",
+    "nameTR": "Dön Kazan",
+    "nameEN": "Spin To Win",
+    "aliases": [
+      "Don Kazan",
+      "Dön Kazan",
+      "Spin To Win"
+    ]
   },
   {
     "name": "Enerjik",
@@ -6715,7 +8023,13 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Enerji dolu saldırı"
+    "note": "Enerji dolu saldırı",
+    "nameTR": "Enerjik",
+    "nameEN": "Energized",
+    "aliases": [
+      "Energized",
+      "Enerjik"
+    ]
   },
   {
     "name": "Gözüne Kırpmadan",
@@ -6734,7 +8048,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Fazladan hız"
+    "note": "Fazladan hız",
+    "nameTR": "Gözüne Kırpmadan",
+    "nameEN": "Blink And You'll Miss It",
+    "aliases": [
+      "Blink And You'll Miss It",
+      "Gozune Kirpmadan",
+      "Gözüne Kırpmadan"
+    ]
   },
   {
     "name": "Himaye Örtüsü",
@@ -6753,7 +8074,14 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Kalkan"
+    "note": "Kalkan",
+    "nameTR": "Himaye Örtüsü",
+    "nameEN": "Protective Shroud",
+    "aliases": [
+      "Himaye Ortusu",
+      "Himaye Örtüsü",
+      "Protective Shroud"
+    ]
   },
   {
     "name": "İtici",
@@ -6773,7 +8101,14 @@ export const augments = [
     "counterTags": [
       "Engage"
     ],
-    "note": "Yakın rakipleri savurma"
+    "note": "Yakın rakipleri savurma",
+    "nameTR": "İtici",
+    "nameEN": "Repulsor",
+    "aliases": [
+      "Itici",
+      "Repulsor",
+      "İtici"
+    ]
   },
   {
     "name": "Kır Yumurtayı",
@@ -6793,7 +8128,14 @@ export const augments = [
     "counterTags": [
       "Melee"
     ],
-    "note": "Kalkan patlar"
+    "note": "Kalkan patlar",
+    "nameTR": "Kır Yumurtayı",
+    "nameEN": "Nesting Doll",
+    "aliases": [
+      "Kir Yumurtayi",
+      "Kır Yumurtayı",
+      "Nesting Doll"
+    ]
   },
   {
     "name": "Kritik Kullanım",
@@ -6813,7 +8155,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Kritik sonrası cd"
+    "note": "Kritik sonrası cd",
+    "nameTR": "Kritik Kullanım",
+    "nameEN": "Critical Use",
+    "aliases": [
+      "Critical Use",
+      "Kritik Kullanim",
+      "Kritik Kullanım"
+    ]
   },
   {
     "name": "Kudretli Kalkan",
@@ -6833,7 +8182,13 @@ export const augments = [
     "counterTags": [
       "Burst"
     ],
-    "note": "Kalkan hasar"
+    "note": "Kalkan hasar",
+    "nameTR": "Kudretli Kalkan",
+    "nameEN": "Heavy Shield",
+    "aliases": [
+      "Heavy Shield",
+      "Kudretli Kalkan"
+    ]
   },
   {
     "name": "Öcü",
@@ -6854,7 +8209,14 @@ export const augments = [
       "Shield",
       "Support"
     ],
-    "note": "Bariyer ve heal azaltma"
+    "note": "Bariyer ve heal azaltma",
+    "nameTR": "Öcü",
+    "nameEN": "Boogeyman",
+    "aliases": [
+      "Boogeyman",
+      "Ocu",
+      "Öcü"
+    ]
   },
   {
     "name": "Saf Yetenek",
@@ -6874,7 +8236,13 @@ export const augments = [
     "counterTags": [
       "LongFight"
     ],
-    "note": "Bekleme azalması"
+    "note": "Bekleme azalması",
+    "nameTR": "Saf Yetenek",
+    "nameEN": "Pure Skill",
+    "aliases": [
+      "Pure Skill",
+      "Saf Yetenek"
+    ]
   },
   {
     "name": "Sıçrayan Bomba",
@@ -6894,7 +8262,14 @@ export const augments = [
     "counterTags": [
       "Squishy"
     ],
-    "note": "Bomba"
+    "note": "Bomba",
+    "nameTR": "Sıçrayan Bomba",
+    "nameEN": "Bouncing Bomb",
+    "aliases": [
+      "Bouncing Bomb",
+      "Sicrayan Bomba",
+      "Sıçrayan Bomba"
+    ]
   },
   {
     "name": "Daldan Dala",
@@ -6914,7 +8289,13 @@ export const augments = [
     "counterTags": [
       "Teamfight"
     ],
-    "note": "Büyü sekmesi"
+    "note": "Büyü sekmesi",
+    "nameTR": "Daldan Dala",
+    "nameEN": "Chain Lightning",
+    "aliases": [
+      "Chain Lightning",
+      "Daldan Dala"
+    ]
   },
   {
     "name": "Erdem Döngüsü",
@@ -6934,7 +8315,14 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "İyileştirme zinciri"
+    "note": "İyileştirme zinciri",
+    "nameTR": "Erdem Döngüsü",
+    "nameEN": "Virtuous Cycle",
+    "aliases": [
+      "Erdem Dongusu",
+      "Erdem Döngüsü",
+      "Virtuous Cycle"
+    ]
   },
   {
     "name": "Geliştirme: Hortlak Palası",
@@ -6952,7 +8340,14 @@ export const augments = [
     "counterTags": [
       "Mixed"
     ],
-    "note": "Hortlak Palası"
+    "note": "Hortlak Palası",
+    "nameTR": "Geliştirme: Hortlak Palası",
+    "nameEN": "Item Upgrade: Spectral Cutlass",
+    "aliases": [
+      "Gelistirme: Hortlak Palasi",
+      "Geliştirme: Hortlak Palası",
+      "Item Upgrade: Spectral Cutlass"
+    ]
   },
   {
     "name": "Yakala!",
@@ -6972,7 +8367,13 @@ export const augments = [
     "counterTags": [
       "Poke"
     ],
-    "note": "Kartopu yenileme"
+    "note": "Kartopu yenileme",
+    "nameTR": "Yakala!",
+    "nameEN": "Catch!",
+    "aliases": [
+      "Catch!",
+      "Yakala!"
+    ]
   }
 ];
 export const meta = [
