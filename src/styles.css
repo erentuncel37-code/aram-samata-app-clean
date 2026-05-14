@@ -215,3 +215,53 @@ input:focus { border-color: #60a5fa; box-shadow: 0 0 0 4px rgba(96, 165, 250, .1
 @media (max-width: 640px) {
   .history-stats { grid-template-columns: 1fr; }
 }
+
+/* Champion icon fields */
+.champ-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.champ-field .ac {
+  flex: 1;
+  min-width: 0;
+}
+
+.champ-icon-wrap {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.champ-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(96, 165, 250, 0.9);
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.35);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.champ-icon-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(226, 232, 240, 0.55);
+  font-weight: 800;
+  border-style: dashed;
+}
+
+@media (max-width: 520px) {
+  .champ-icon-wrap,
+  .champ-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+}

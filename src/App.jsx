@@ -36,7 +36,7 @@ const UI = {
     metaTier: 'Meta/Tier',
     reason: 'Gerekçe:',
     weakReason: 'Bu üçlü mevcut şampiyon, rakip ve önceki seçimlere göre yeterince güçlü görünmüyor.',
-    chooseCard: 'Kartı seçtim',
+    chooseCard: 'kartı seçtim, devam',
     cleared: 'Kartları çevirdim, alanı temizle',
     summary: 'Seçim Özeti',
     notPicked: 'Henüz seçilmedi',
@@ -72,7 +72,7 @@ const UI = {
     win: 'Kazandım',
     loss: 'Kaybettim',
     note: 'Not',
-    notePlaceholder: 'İsteğe bağlı: Build nasıl hissettirdi?',
+    notePlaceholder: 'İsteğe bağlı: build nasıl hissettirdi?',
     historyEmpty: 'Henüz maç kaydı yok.',
     games: 'Oyun',
     wins: 'Galibiyet',
@@ -205,6 +205,47 @@ function historyStats(history = []) {
 function getChampion(name) {
   return champions.find((c) => normalize(c.name) === normalize(name));
 }
+
+const championIconMap = {
+  "Aurelion Sol": "AurelionSol",
+  "Bel'Veth": "Belveth",
+  "Cho'Gath": "Chogath",
+  "Dr. Mundo": "DrMundo",
+  "Jarvan IV": "JarvanIV",
+  "Kai'Sa": "Kaisa",
+  "Kha'Zix": "Khazix",
+  "Kog'Maw": "KogMaw",
+  "K'Sante": "KSante",
+  "LeBlanc": "Leblanc",
+  "Lee Sin": "LeeSin",
+  "Master Yi": "MasterYi",
+  "Miss Fortune": "MissFortune",
+  "Nunu ve Willump": "Nunu",
+  "Nunu & Willump": "Nunu",
+  "Rek'Sai": "RekSai",
+  "Renata Glasc": "Renata",
+  "Tahm Kench": "TahmKench",
+  "Twisted Fate": "TwistedFate",
+  "Vel'Koz": "Velkoz",
+  "Xin Zhao": "XinZhao",
+  "Wukong": "MonkeyKing",
+};
+
+function championIcon(name) {
+  if (!name) return '';
+  const champion = getChampion(name);
+  const displayName = champion?.name || name;
+  const mapped = champion?.icon || championIconMap[displayName] || displayName;
+  const clean = mapped
+    .replaceAll('.', '')
+    .replaceAll("'", '')
+    .replaceAll(' ', '')
+    .replaceAll('&', '')
+    .replaceAll('ve', '')
+    .replaceAll('Willump', '');
+
+  return `https://ddragon.leagueoflegends.com/cdn/15.10.1/img/champion/${clean}.png`;
+}
 function getAugment(name) {
   return augments.find((a) => {
     const values = [a.name, a.nameTR, a.nameEN, ...(a.aliases || [])];
@@ -323,6 +364,29 @@ function AutoCompleteInput({ value, onChange, options, placeholder }) {
     </div>
   );
 }
+function ChampionField({ value, onChange, options, placeholder }) {
+  const iconSrc = championIcon(value);
+
+  return (
+    <div className="champ-field">
+      <div className="champ-icon-wrap">
+        {value ? (
+          <img
+            src={iconSrc}
+            className="champ-icon"
+            alt={value}
+            loading="lazy"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
+        ) : (
+          <div className="champ-icon champ-icon-empty">?</div>
+        )}
+      </div>
+      <AutoCompleteInput value={value} onChange={onChange} options={options} placeholder={placeholder} />
+    </div>
+  );
+}
+
 function Pill({ children }) { return <span className="pill">{children}</span>; }
 function ScoreBreakdown({ result, lang = 'tr' }) {
   const t = UI[lang] || UI.tr;
@@ -495,26 +559,7 @@ function App() {
   const [lang, setLang] = useState('tr');
   const t = UI[lang] || UI.tr;
   const championNames = useMemo(() => champions.map(c => c.name), []);
-  const augmentNames = useMemo(() => {
-  const seen = new Set();
-
-  return augments
-    .flatMap(a => [
-      a.name,
-      a.nameTR,
-      a.nameEN,
-      ...(a.aliases || [])
-    ])
-    .filter(Boolean)
-    .filter(name => {
-      const key = simplifyForMatch(name);
-
-      if (seen.has(key)) return false;
-
-      seen.add(key);
-      return true;
-    });
-}, []);
+  const augmentNames = useMemo(() => uniq(augments.flatMap(a => [a.name, a.nameTR, a.nameEN, ...(a.aliases || [])]).filter(Boolean)), []);
   const [champion, setChampion] = useState('Dr. Mundo');
   const [enemies, setEnemies] = useState(['Smolder', 'Twisted Fate', 'Illaoi', 'Cassiopeia', 'Lissandra']);
   const [allies, setAllies] = useState(['', '', '', '']);
@@ -600,18 +645,30 @@ function App() {
       <section className="card setup">
         <h2><Swords size={18}/> {t.setup}</h2>
         <label>{t.yourChampion}</label>
-        <AutoCompleteInput value={champion} onChange={setChampion} options={championNames} placeholder={t.championPlaceholder} />
+        <ChampionField value={champion} onChange={setChampion} options={championNames} placeholder={t.championPlaceholder} />
         {champ && <div className="info"><b>{champ.role}</b> · {champ.damage}<br/><span>{joinTags(champ.tags)}</span></div>}
         <label>{t.enemies}</label>
         <div className="enemy-grid">
           {enemies.map((e, i) => (
-            <AutoCompleteInput key={i} value={e} onChange={(v) => setEnemies(prev => prev.map((x, j) => j === i ? v : x))} options={championNames} placeholder={`${t.enemy} ${i+1}`} />
+            <ChampionField
+              key={i}
+              value={e}
+              onChange={(v) => setEnemies(prev => prev.map((x, j) => j === i ? v : x))}
+              options={championNames}
+              placeholder={`${t.enemy} ${i+1}`}
+            />
           ))}
         </div>
         <label>{t.allies}</label>
         <div className="enemy-grid">
           {allies.map((ally, i) => (
-            <AutoCompleteInput key={i} value={ally} onChange={(v) => setAllies(prev => prev.map((x, j) => j === i ? v : x))} options={championNames} placeholder={`${t.ally} ${i+1}`} />
+            <ChampionField
+              key={i}
+              value={ally}
+              onChange={(v) => setAllies(prev => prev.map((x, j) => j === i ? v : x))}
+              options={championNames}
+              placeholder={`${t.ally} ${i+1}`}
+            />
           ))}
         </div>
         {metaRow?.priorityAugments?.length > 0 && <div className="meta"><b>{t.metaPriorities}</b> {metaRow.priorityAugments.slice(0, 6).map(x => <Pill key={x}>{augmentDisplayName(x, lang)}</Pill>)}</div>}
