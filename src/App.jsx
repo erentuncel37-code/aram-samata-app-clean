@@ -7,8 +7,8 @@ import './styles.css';
 const emptyTurn = { options: ['', '', ''], lockedChoice: '' };
 const UI = {
   tr: {
-    appName: 'Eklenti Taktik Programı',
-    subtitle: 'Excel v2 karar motorunun mobil uygulama prototipi. Şampiyonunu, rakipleri ve gelen 3 kartı gir; sistem AL veya ÇEVİR kararını verir.',
+    appName: 'ARAM Şamata Rehberi',
+    subtitle: 'Şampiyonunu, rakipleri ve eklenti seçeneklerini gir. Sistem sana en güçlü seçimi ve kart çevirme önerisini göstersin.',
     reset: 'Sıfırla',
     setup: 'Oyun Girişi',
     yourChampion: 'Şampiyonun',
@@ -82,8 +82,8 @@ const UI = {
     learningHint: 'Kişisel öğrenme bonusu: aynı şampiyon + aynı eklenti geçmiş sonuçlarına göre hesaplanır.',
   },
   en: {
-    appName: 'Augment Tactics App',
-    subtitle: 'Mobile prototype of the Excel v2 decision engine. Pick your champion, enemies, and the 3 cards; the app returns TAKE or REROLL.',
+    appName: 'ARAM Mayhem Guide',
+    subtitle: 'Enter your champion, enemies and augment choices to get the best pick and reroll suggestions.',
     reset: 'Reset',
     setup: 'Game Setup',
     yourChampion: 'Your champion',
