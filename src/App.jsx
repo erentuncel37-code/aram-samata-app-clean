@@ -5,6 +5,119 @@ import { champions, augments, meta, settings } from './data/gameData.js';
 import './styles.css';
 
 const emptyTurn = { options: ['', '', ''], lockedChoice: '' };
+const UI = {
+  tr: {
+    appName: 'Eklenti Taktik Programı',
+    subtitle: 'Excel v2 karar motorunun mobil uygulama prototipi. Şampiyonunu, rakipleri ve gelen 3 kartı gir; sistem AL veya ÇEVİR kararını verir.',
+    reset: 'Sıfırla',
+    setup: 'Oyun Girişi',
+    yourChampion: 'Şampiyonun',
+    championPlaceholder: 'Şampiyon seç',
+    enemies: '5 Rakip',
+    enemy: 'Rakip',
+    metaPriorities: 'Meta öncelikleri:',
+    turn: 'Tur',
+    augmentPick: 'Eklenti Seçimi',
+    rerollLabel: 'Reroll eşiği',
+    rerollHelp: 'Bu eşiğin altındaysa kart çevirmek daha mantıklı.',
+    selected: 'Seçildi:',
+    card: 'Kart',
+    augmentPlaceholder: 'Eklenti yaz',
+    score: 'Skor',
+    take: 'AL:',
+    reroll: 'Kartları çevir',
+    bestScore: 'En iyi skor',
+    threshold: 'eşik',
+    enter3: '3 eklentiyi gir',
+    resultHere: 'Sonuç burada görünecek.',
+    championScore: 'Şampiyon',
+    enemyScore: 'Rakip',
+    synergy: 'Sinerji',
+    metaTier: 'Meta/Tier',
+    reason: 'Gerekçe:',
+    weakReason: 'Bu üçlü mevcut şampiyon, rakip ve önceki seçimlere göre yeterince güçlü görünmüyor.',
+    chooseCard: 'kartı seçtim, devam',
+    cleared: 'Kartları çevirdim, alanı temizle',
+    summary: 'Seçim Özeti',
+    notPicked: 'Henüz seçilmedi',
+    points: 'puan',
+    buildDirection: 'Build yönü:',
+    buildEmpty: 'Seçim yaptıkça burada oluşacak.',
+    ocrTitle: 'Ekran görüntüsünden kartları oku',
+    ocrDesc: 'Opsiyonel: Fotoğraf/screenshot yükle, bulunan kartları aktif turun 3 alanına uygula.',
+    ocrNoImage: 'Görsel seçilmedi.',
+    ocrEngineFail: 'OCR motoru yüklenemedi. İnternet bağlantısını kontrol edip sayfayı yenile.',
+    ocrReading: 'Görsel okunuyor...',
+    ocrFound: 'kart tahmini bulundu.',
+    ocrNotFound: 'Kart adı bulunamadı. Görseli daha yakından/kırpılmış şekilde dene.',
+    ocrError: 'OCR hata verdi:',
+    applyOcr: 'Bu kartları aktif tura uygula',
+    direct: 'için doğrudan önerilen eklenti',
+    champTagFit: 'şampiyon etiketi uyumu',
+    enemyValue: 'rakiplere karşı değer',
+    prevSynergy: 'önceki seçimlerle sinerji',
+    metaPriority: 'MetaSRC önceliği',
+    highestRaw: 'bu üçlü içinde en yüksek ham puanı aldı',
+    notFound: 'BULUNAMADI',
+    notFoundReason: 'Eklenti veya şampiyon veritabanında bulunamadı.',
+  },
+  en: {
+    appName: 'Augment Tactics App',
+    subtitle: 'Mobile prototype of the Excel v2 decision engine. Pick your champion, enemies, and the 3 cards; the app returns TAKE or REROLL.',
+    reset: 'Reset',
+    setup: 'Game Setup',
+    yourChampion: 'Your champion',
+    championPlaceholder: 'Select champion',
+    enemies: '5 Enemies',
+    enemy: 'Enemy',
+    metaPriorities: 'Meta priorities:',
+    turn: 'Round',
+    augmentPick: 'Augment Pick',
+    rerollLabel: 'Reroll threshold',
+    rerollHelp: 'Below this threshold, rerolling is usually better.',
+    selected: 'Selected:',
+    card: 'Card',
+    augmentPlaceholder: 'Type augment',
+    score: 'Score',
+    take: 'TAKE:',
+    reroll: 'Reroll cards',
+    bestScore: 'Best score',
+    threshold: 'threshold',
+    enter3: 'Enter 3 augments',
+    resultHere: 'Result will appear here.',
+    championScore: 'Champion',
+    enemyScore: 'Enemy',
+    synergy: 'Synergy',
+    metaTier: 'Meta/Tier',
+    reason: 'Reason:',
+    weakReason: 'These options look weak for your champion, enemies, and previous picks.',
+    chooseCard: 'card selected, continue',
+    cleared: 'I rerolled, clear fields',
+    summary: 'Pick Summary',
+    notPicked: 'Not picked yet',
+    points: 'pts',
+    buildDirection: 'Build direction:',
+    buildEmpty: 'Will appear as you pick augments.',
+    ocrTitle: 'Read cards from screenshot',
+    ocrDesc: 'Optional: upload a photo/screenshot; detected cards can fill the active round.',
+    ocrNoImage: 'No image selected.',
+    ocrEngineFail: 'OCR engine failed to load. Check your connection and refresh.',
+    ocrReading: 'Reading image...',
+    ocrFound: 'card guesses found.',
+    ocrNotFound: 'No card name found. Try a closer/cropped image.',
+    ocrError: 'OCR error:',
+    applyOcr: 'Apply these cards to active round',
+    direct: 'is directly recommended for',
+    champTagFit: 'champion tag fit',
+    enemyValue: 'enemy-counter value',
+    prevSynergy: 'synergy with previous picks',
+    metaPriority: 'MetaSRC priority',
+    highestRaw: 'highest raw score among these options',
+    notFound: 'NOT FOUND',
+    notFoundReason: 'Augment or champion not found in database.',
+  },
+};
+
 const normalize = (txt = '') => txt.toString().toLocaleLowerCase('tr-TR').trim();
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 const containsName = (list, name) => list.map(normalize).includes(normalize(name));
@@ -14,7 +127,16 @@ function getChampion(name) {
   return champions.find((c) => normalize(c.name) === normalize(name));
 }
 function getAugment(name) {
-  return augments.find((a) => normalize(a.name) === normalize(name));
+  return augments.find((a) => {
+    const values = [a.name, a.nameTR, a.nameEN, ...(a.aliases || [])];
+    return values.some((v) => normalize(v) === normalize(name));
+  });
+}
+function augmentDisplayName(name, lang = 'tr') {
+  const aug = getAugment(name);
+  if (!aug) return name;
+  if (lang === 'en') return aug.nameEN || aug.name || name;
+  return aug.nameTR || aug.name || name;
 }
 function getMeta(champion) {
   return meta.find((m) => normalize(m.champion) === normalize(champion));
@@ -44,21 +166,23 @@ function previousTags(turns, currentTurnIndex) {
 function enemyTags(enemyNames) {
   return enemyNames.flatMap(name => getChampion(name)?.tags || []);
 }
-function explainScore(parts, augment, champion, enemies) {
+function explainScore(parts, augment, champion, enemies, lang = 'tr') {
+  const t = UI[lang] || UI.tr;
   const bits = [];
-  if (parts.direct > 0) bits.push(`${champion} için doğrudan önerilen eklenti`);
-  if (parts.championTag > 0) bits.push(`şampiyon etiketi uyumu +${parts.championTag}`);
-  if (parts.enemy > 0) bits.push(`rakiplere karşı değer +${parts.enemy}`);
-  if (parts.synergy > 0) bits.push(`önceki seçimlerle sinerji +${parts.synergy}`);
-  if (parts.meta > 0) bits.push(`MetaSRC önceliği +${Math.round(parts.meta)}`);
-  if (bits.length === 0) bits.push('bu üçlü içinde en yüksek ham puanı aldı');
+  if (parts.direct > 0) bits.push(lang === 'en' ? `${augmentDisplayName(augment.name, lang)} ${t.direct} ${champion}` : `${champion} ${t.direct}`);
+  if (parts.championTag > 0) bits.push(`${t.champTagFit} +${parts.championTag}`);
+  if (parts.enemy > 0) bits.push(`${t.enemyValue} +${parts.enemy}`);
+  if (parts.synergy > 0) bits.push(`${t.prevSynergy} +${parts.synergy}`);
+  if (parts.meta > 0) bits.push(`${t.metaPriority} +${Math.round(parts.meta)}`);
+  if (bits.length === 0) bits.push(t.highestRaw);
   return bits.slice(0, 3).join(' · ');
 }
-function scoreAugment(augmentName, championName, enemies, turns, currentTurnIndex) {
+function scoreAugment(augmentName, championName, enemies, turns, currentTurnIndex, lang = 'tr') {
+  const t = UI[lang] || UI.tr;
   const augment = getAugment(augmentName);
   const champ = getChampion(championName);
   if (!augment || !champ) {
-    return { name: augmentName, score: 0, decision: 'BULUNAMADI', reason: 'Eklenti veya şampiyon veritabanında bulunamadı.', parts: {} };
+    return { name: augmentName, score: 0, decision: t.notFound, reason: t.notFoundReason, parts: {} };
   }
   const champTags = champ.tags || [];
   const eTags = enemyTags(enemies);
@@ -80,13 +204,13 @@ function scoreAugment(augmentName, championName, enemies, turns, currentTurnInde
     tags: augment.tags || [],
     note: augment.note || '',
     parts,
-    reason: explainScore(parts, augment, championName, enemies),
+    reason: explainScore(parts, augment, championName, enemies, lang),
   };
 }
-function evaluateTurn(turnIndex, champion, enemies, turns) {
+function evaluateTurn(turnIndex, champion, enemies, turns, lang = 'tr') {
   const options = turns[turnIndex].options.filter(Boolean);
   const threshold = Number(settings.thresholds[turnIndex + 1] || 50);
-  const scored = options.map(opt => scoreAugment(opt, champion, enemies, turns, turnIndex)).sort((a, b) => b.score - a.score);
+  const scored = options.map(opt => scoreAugment(opt, champion, enemies, turns, turnIndex, lang)).sort((a, b) => b.score - a.score);
   const best = scored[0];
   const pass = best && best.score >= threshold;
   return { scored, best, threshold, pass };
@@ -116,14 +240,15 @@ function AutoCompleteInput({ value, onChange, options, placeholder }) {
   );
 }
 function Pill({ children }) { return <span className="pill">{children}</span>; }
-function ScoreBreakdown({ result }) {
+function ScoreBreakdown({ result, lang = 'tr' }) {
+  const t = UI[lang] || UI.tr;
   if (!result) return null;
   return (
     <div className="breakdown">
-      <span>Şampiyon: {Math.round((result.parts.direct || 0) + (result.parts.championTag || 0))}</span>
-      <span>Rakip: {Math.round(result.parts.enemy || 0)}</span>
-      <span>Sinerji: {Math.round(result.parts.synergy || 0)}</span>
-      <span>Meta/Tier: {Math.round((result.parts.meta || 0) + (result.parts.tier || 0))}</span>
+      <span>{t.championScore}: {Math.round((result.parts.direct || 0) + (result.parts.championTag || 0))}</span>
+      <span>{t.enemyScore}: {Math.round(result.parts.enemy || 0)}</span>
+      <span>{t.synergy}: {Math.round(result.parts.synergy || 0)}</span>
+      <span>{t.metaTier}: {Math.round((result.parts.meta || 0) + (result.parts.tier || 0))}</span>
     </div>
   );
 }
@@ -170,7 +295,8 @@ function matchAugmentsFromOcr(text, augmentNames) {
   const found = [];
   const add = (name, score, source) => {
     if (!name || found.some(x => normalize(x.name) === normalize(name))) return;
-    found.push({ name, score, source });
+    const aug = getAugment(name);
+    found.push({ name: aug?.name || name, score, source });
   };
 
   augmentNames.forEach((name) => {
@@ -195,25 +321,24 @@ function matchAugmentsFromOcr(text, augmentNames) {
 
   return found.sort((a, b) => b.score - a.score).slice(0, 3).map(x => x.name);
 }
-function OcrCardReader({ augmentNames, onApply }) {
-  const [status, setStatus] = useState('Görsel seçilmedi.');
-  const [rawText, setRawText] = useState('');
+function OcrCardReader({ augmentNames, onApply, lang = 'tr' }) {
+  const t = UI[lang] || UI.tr;
+  const [status, setStatus] = useState(t.ocrNoImage);
   const [suggestions, setSuggestions] = useState([]);
   const [progress, setProgress] = useState(0);
 
   async function handleImage(file) {
     if (!file) return;
-    setRawText('');
     setSuggestions([]);
     setProgress(0);
 
     if (!window.Tesseract) {
-      setStatus('OCR motoru yüklenemedi. İnternet bağlantısını kontrol edip sayfayı yenile.');
+      setStatus(t.ocrEngineFail);
       return;
     }
 
     try {
-      setStatus('Görsel okunuyor...');
+      setStatus(t.ocrReading);
       const result = await window.Tesseract.recognize(file, 'tur+eng', {
         logger: (m) => {
           if (m.status === 'recognizing text') setProgress(Math.round((m.progress || 0) * 100));
@@ -221,11 +346,10 @@ function OcrCardReader({ augmentNames, onApply }) {
       });
       const text = result?.data?.text || '';
       const matched = matchAugmentsFromOcr(text, augmentNames);
-      setRawText(text.trim());
       setSuggestions(matched);
-      setStatus(matched.length ? `${matched.length} kart tahmini bulundu.` : 'Kart adı bulunamadı. Görseli daha yakından/kırpılmış şekilde dene.');
+      setStatus(matched.length ? `${matched.length} ${t.ocrFound}` : t.ocrNotFound);
     } catch (err) {
-      setStatus(`OCR hata verdi: ${err?.message || 'Bilinmeyen hata'}`);
+      setStatus(`${t.ocrError} ${err?.message || 'Unknown error'}`);
     }
   }
 
@@ -233,8 +357,8 @@ function OcrCardReader({ augmentNames, onApply }) {
     <div className="ocr-box">
       <div className="ocr-head">
         <div>
-          <b>Ekran görüntüsünden kartları oku</b>
-          <p>Opsiyonel: Fotoğraf/screenshot yükle, bulunan kartları aktif turun 3 alanına uygula.</p>
+          <b>{t.ocrTitle}</b>
+          <p>{t.ocrDesc}</p>
         </div>
       </div>
       <input
@@ -246,38 +370,41 @@ function OcrCardReader({ augmentNames, onApply }) {
       <div className="ocr-status">{status}{progress > 0 && progress < 100 ? ` (${progress}%)` : ''}</div>
       {suggestions.length > 0 && (
         <div className="ocr-results">
-          <div>{suggestions.map(x => <Pill key={x}>{x}</Pill>)}</div>
-          <button className="primary" type="button" onClick={() => onApply(suggestions)}>Bu kartları aktif tura uygula</button>
+          <div>{suggestions.map(x => <Pill key={x}>{augmentDisplayName(x, lang)}</Pill>)}</div>
+          <button className="primary" type="button" onClick={() => onApply(suggestions)}>{t.applyOcr}</button>
         </div>
       )}
     </div>
   );
 }
 function App() {
+  const [lang, setLang] = useState('tr');
+  const t = UI[lang] || UI.tr;
   const championNames = useMemo(() => champions.map(c => c.name), []);
-  const augmentNames = useMemo(() => augments.map(a => a.name), []);
+  const augmentNames = useMemo(() => uniq(augments.flatMap(a => [a.name, a.nameTR, a.nameEN, ...(a.aliases || [])]).filter(Boolean)), []);
   const [champion, setChampion] = useState('Dr. Mundo');
   const [enemies, setEnemies] = useState(['Smolder', 'Twisted Fate', 'Illaoi', 'Cassiopeia', 'Lissandra']);
   const [turns, setTurns] = useState([{...emptyTurn}, {...emptyTurn}, {...emptyTurn}, {...emptyTurn}]);
   const [activeTurn, setActiveTurn] = useState(0);
   const champ = getChampion(champion);
   const metaRow = getMeta(champion);
-  const evaluations = turns.map((_, i) => evaluateTurn(i, champion, enemies, turns));
+  const evaluations = turns.map((_, i) => evaluateTurn(i, champion, enemies, turns, lang));
   const currentEval = evaluations[activeTurn];
 
   function setTurnOption(ti, oi, value) {
-    setTurns(prev => prev.map((t, idx) => idx !== ti ? t : { ...t, options: t.options.map((o, j) => j === oi ? value : o) }));
+    setTurns(prev => prev.map((turn, idx) => idx !== ti ? turn : { ...turn, options: turn.options.map((o, j) => j === oi ? value : o) }));
   }
   function choose(name) {
-    setTurns(prev => prev.map((t, idx) => idx !== activeTurn ? t : { ...t, lockedChoice: name }));
+    const aug = getAugment(name);
+    setTurns(prev => prev.map((turn, idx) => idx !== activeTurn ? turn : { ...turn, lockedChoice: aug?.name || name }));
     if (activeTurn < 3) setActiveTurn(activeTurn + 1);
   }
   function reroll() {
-    setTurns(prev => prev.map((t, idx) => idx !== activeTurn ? t : { ...t, options: ['', '', ''], lockedChoice: '' }));
+    setTurns(prev => prev.map((turn, idx) => idx !== activeTurn ? turn : { ...turn, options: ['', '', ''], lockedChoice: '' }));
   }
   function applyOcrSuggestions(names) {
-    setTurns(prev => prev.map((t, idx) => idx !== activeTurn ? t : {
-      ...t,
+    setTurns(prev => prev.map((turn, idx) => idx !== activeTurn ? turn : {
+      ...turn,
       options: [names[0] || '', names[1] || '', names[2] || ''],
       lockedChoice: '',
     }));
@@ -292,72 +419,76 @@ function App() {
       <section className="hero">
         <div>
           <div className="eyebrow"><Sparkles size={16}/> LoL ARAM Şamata</div>
-          <h1>Eklenti Taktik Programı</h1>
-          <p>Excel v2 karar motorunun mobil uygulama prototipi. Şampiyonunu, rakipleri ve gelen 3 kartı gir; sistem AL veya ÇEVİR kararını verir.</p>
+          <h1>{t.appName}</h1>
+          <p>{t.subtitle}</p>
         </div>
-        <button className="ghost" onClick={resetAll}><RotateCcw size={16}/> Sıfırla</button>
+        <div className="hero-actions">
+          <button className="lang-toggle" onClick={() => setLang(lang === 'tr' ? 'en' : 'tr')}>{lang === 'tr' ? '🇹🇷 TR' : '🇬🇧 EN'}</button>
+          <button className="ghost" onClick={resetAll}><RotateCcw size={16}/> {t.reset}</button>
+        </div>
       </section>
 
       <section className="card setup">
-        <h2><Swords size={18}/> Oyun Girişi</h2>
-        <label>Şampiyonun</label>
-        <AutoCompleteInput value={champion} onChange={setChampion} options={championNames} placeholder="Şampiyon seç" />
+        <h2><Swords size={18}/> {t.setup}</h2>
+        <label>{t.yourChampion}</label>
+        <AutoCompleteInput value={champion} onChange={setChampion} options={championNames} placeholder={t.championPlaceholder} />
         {champ && <div className="info"><b>{champ.role}</b> · {champ.damage}<br/><span>{joinTags(champ.tags)}</span></div>}
-        <label>5 Rakip</label>
+        <label>{t.enemies}</label>
         <div className="enemy-grid">
           {enemies.map((e, i) => (
-            <AutoCompleteInput key={i} value={e} onChange={(v) => setEnemies(prev => prev.map((x, j) => j === i ? v : x))} options={championNames} placeholder={`Rakip ${i+1}`} />
+            <AutoCompleteInput key={i} value={e} onChange={(v) => setEnemies(prev => prev.map((x, j) => j === i ? v : x))} options={championNames} placeholder={`${t.enemy} ${i+1}`} />
           ))}
         </div>
-        {metaRow?.priorityAugments?.length > 0 && <div className="meta"><b>Meta öncelikleri:</b> {metaRow.priorityAugments.slice(0, 6).map(x => <Pill key={x}>{x}</Pill>)}</div>}
+        {metaRow?.priorityAugments?.length > 0 && <div className="meta"><b>{t.metaPriorities}</b> {metaRow.priorityAugments.slice(0, 6).map(x => <Pill key={x}>{augmentDisplayName(x, lang)}</Pill>)}</div>}
       </section>
 
       <section className="tabs">
-        {turns.map((t, i) => <button key={i} className={activeTurn === i ? 'active' : ''} onClick={() => setActiveTurn(i)}>Tur {i+1}{t.lockedChoice ? ' ✓' : ''}</button>)}
+        {turns.map((turn, i) => <button key={i} className={activeTurn === i ? 'active' : ''} onClick={() => setActiveTurn(i)}>{t.turn} {i+1}{turn.lockedChoice ? ' ✓' : ''}</button>)}
       </section>
 
       <section className="card turn-card">
         <div className="turn-head">
           <div>
-            <h2>{activeTurn + 1}. Eklenti Seçimi</h2>
-            <p>Reroll eşiği: <b>{currentEval.threshold}</b>. Bu eşiğin altındaysa kart çevirmek daha mantıklı.</p>
+            <h2>{activeTurn + 1}. {t.augmentPick}</h2>
+            <p>{t.rerollLabel}: <b>{currentEval.threshold}</b>. {t.rerollHelp}</p>
           </div>
-          {turns[activeTurn].lockedChoice && <div className="locked"><CheckCircle2 size={16}/> Seçildi: {turns[activeTurn].lockedChoice}</div>}
+          {turns[activeTurn].lockedChoice && <div className="locked"><CheckCircle2 size={16}/> {t.selected} {augmentDisplayName(turns[activeTurn].lockedChoice, lang)}</div>}
         </div>
         <div className="option-grid">
           {[0,1,2].map(i => {
             const optionName = turns[activeTurn].options[i];
-            const rank = currentEval.scored.findIndex(s => normalize(s.name) === normalize(optionName));
+            const rank = currentEval.scored.findIndex(s => normalize(s.name) === normalize(getAugment(optionName)?.name || optionName));
             const rankClass = rank === 0 ? 'rank-best' : rank === 1 ? 'rank-mid' : rank === 2 ? 'rank-low' : '';
+            const scored = currentEval.scored.find(s => normalize(s.name) === normalize(getAugment(optionName)?.name || optionName));
             return (
-            <div className={`option ${rankClass}`} key={i}>
-              <label>Kart {i+1}</label>
-              <AutoCompleteInput value={turns[activeTurn].options[i]} onChange={(v) => setTurnOption(activeTurn, i, v)} options={augmentNames} placeholder="Eklenti yaz" />
-              {currentEval.scored.find(s => normalize(s.name) === normalize(turns[activeTurn].options[i])) && (
-                <div className="mini-score">
-                  Skor: {currentEval.scored.find(s => normalize(s.name) === normalize(turns[activeTurn].options[i]))?.score}
-                </div>
-              )}
-            </div>
-          )})}
+              <div className={`option ${rankClass}`} key={i}>
+                <label>{t.card} {i+1}</label>
+                <AutoCompleteInput value={turns[activeTurn].options[i]} onChange={(v) => setTurnOption(activeTurn, i, v)} options={augmentNames} placeholder={t.augmentPlaceholder} />
+                {scored && (
+                  <div className="mini-score">
+                    {t.score}: {scored.score}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
-        <OcrCardReader augmentNames={augmentNames} onApply={applyOcrSuggestions} />
+        <OcrCardReader augmentNames={augmentNames} onApply={applyOcrSuggestions} lang={lang} />
 
         <div className={`decision ${currentEval.pass ? 'take' : 'reroll'}`}>
           {currentEval.best ? (
-            currentEval.pass ? <><CheckCircle2/> <b>AL: {currentEval.best.name}</b><span>Skor {currentEval.best.score}</span></> : <><XCircle/> <b>Kartları çevir</b><span>En iyi skor {currentEval.best.score}, eşik {currentEval.threshold}</span></>
-          ) : <><Search/> <b>3 eklentiyi gir</b><span>Sonuç burada görünecek.</span></>}
+            currentEval.pass ? <><CheckCircle2/> <b>{t.take} {augmentDisplayName(currentEval.best.name, lang)}</b><span>{t.score} {currentEval.best.score}</span></> : <><XCircle/> <b>{t.reroll}</b><span>{t.bestScore} {currentEval.best.score}, {t.threshold} {currentEval.threshold}</span></>
+          ) : <><Search/> <b>{t.enter3}</b><span>{t.resultHere}</span></>}
         </div>
         {currentEval.best && <>
-          <ScoreBreakdown result={currentEval.best}/>
-          <p className="reason"><b>Gerekçe:</b> {currentEval.pass ? currentEval.best.reason : 'Bu üçlü mevcut şampiyon, rakip ve önceki seçimlere göre yeterince güçlü görünmüyor.'}</p>
+          <ScoreBreakdown result={currentEval.best} lang={lang}/>
+          <p className="reason"><b>{t.reason}</b> {currentEval.pass ? currentEval.best.reason : t.weakReason}</p>
           <div className="actions three-actions">
             {[0, 1, 2].map((i) => {
               const optionName = turns[activeTurn].options[i];
-              const scoredOption = currentEval.scored.find(
-                (s) => normalize(s.name) === normalize(optionName)
-              );
+              const baseName = getAugment(optionName)?.name || optionName;
+              const scoredOption = currentEval.scored.find((s) => normalize(s.name) === normalize(baseName));
 
               if (!optionName || !scoredOption) return null;
 
@@ -367,24 +498,24 @@ function App() {
                   className="primary"
                   onClick={() => choose(scoredOption.name)}
                 >
-                  {i + 1}. kartı seçtim, devam
+                  {i + 1}. {t.chooseCard}
                 </button>
               );
             })}
 
             <button className="secondary" onClick={reroll}>
-              Kartları çevirdim, alanı temizle
+              {t.cleared}
             </button>
           </div>
         </>}
       </section>
 
       <section className="card">
-        <h2><Trophy size={18}/> Seçim Özeti</h2>
+        <h2><Trophy size={18}/> {t.summary}</h2>
         <div className="summary">
-          {turns.map((t, i) => <div className="sum-row" key={i}><span>Tur {i+1}</span><b>{t.lockedChoice || 'Henüz seçilmedi'}</b><em>{t.lockedChoice ? `${scoreAugment(t.lockedChoice, champion, enemies, turns, i).score} puan` : ''}</em></div>)}
+          {turns.map((turn, i) => <div className="sum-row" key={i}><span>{t.turn} {i+1}</span><b>{turn.lockedChoice ? augmentDisplayName(turn.lockedChoice, lang) : t.notPicked}</b><em>{turn.lockedChoice ? `${scoreAugment(turn.lockedChoice, champion, enemies, turns, i, lang).score} ${t.points}` : ''}</em></div>)}
         </div>
-        <div className="build-tags"><ShieldAlert size={16}/> Build yönü: {joinTags(previousTags(turns, 4).slice(0, 12)) || 'Seçim yaptıkça burada oluşacak.'}</div>
+        <div className="build-tags"><ShieldAlert size={16}/> {t.buildDirection} {joinTags(previousTags(turns, 4).slice(0, 12)) || t.buildEmpty}</div>
       </section>
     </main>
   );
