@@ -495,7 +495,26 @@ function App() {
   const [lang, setLang] = useState('tr');
   const t = UI[lang] || UI.tr;
   const championNames = useMemo(() => champions.map(c => c.name), []);
-  const augmentNames = useMemo(() => uniq(augments.flatMap(a => [a.name, a.nameTR, a.nameEN, ...(a.aliases || [])]).filter(Boolean)), []);
+  const augmentNames = useMemo(() => {
+  const seen = new Set();
+
+  return augments
+    .flatMap(a => [
+      a.name,
+      a.nameTR,
+      a.nameEN,
+      ...(a.aliases || [])
+    ])
+    .filter(Boolean)
+    .filter(name => {
+      const key = simplifyForMatch(name);
+
+      if (seen.has(key)) return false;
+
+      seen.add(key);
+      return true;
+    });
+}, []);
   const [champion, setChampion] = useState('Dr. Mundo');
   const [enemies, setEnemies] = useState(['Smolder', 'Twisted Fate', 'Illaoi', 'Cassiopeia', 'Lissandra']);
   const [allies, setAllies] = useState(['', '', '', '']);
