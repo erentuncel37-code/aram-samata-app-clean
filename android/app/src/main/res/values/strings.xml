@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">App name: ARAM SamataPackage ID: com.erentuncel.aramsamata</string>
+    <string name="title_activity_main">App name: ARAM SamataPackage ID: com.erentuncel.aramsamata</string>
+    <string name="package_name">com.erentuncel.aramsamata</string>
+    <string name="custom_url_scheme">com.erentuncel.aramsamata</string>
+</resources>
