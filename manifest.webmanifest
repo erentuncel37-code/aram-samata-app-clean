@@ -1,0 +1,9 @@
+{
+  "name": "ARAM Şamata Eklenti Taktik",
+  "short_name": "Şamata Taktik",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#101827",
+  "icons": []
+}
