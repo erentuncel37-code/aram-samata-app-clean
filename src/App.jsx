@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { RotateCcw, Trophy, Swords, Sparkles, ShieldAlert, CheckCircle2, XCircle, Search } from 'lucide-react';
+import { RotateCcw, Trophy, Swords, Sparkles, ShieldAlert, CheckCircle2, XCircle, Search, Camera, UploadCloud } from 'lucide-react';
+import Tesseract from 'tesseract.js';
 import { champions, augments, meta, settings } from './data/gameData.js';
 import './styles.css';
 
@@ -9,6 +10,65 @@ const normalize = (txt = '') => txt.toString().toLocaleLowerCase('tr-TR').trim()
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 const containsName = (list, name) => list.map(normalize).includes(normalize(name));
 const joinTags = (arr) => uniq(arr).join(', ');
+
+const normalizeLoose = (txt = '') => normalize(txt)
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/ı/g, 'i')
+  .replace(/ğ/g, 'g')
+  .replace(/ü/g, 'u')
+  .replace(/ş/g, 's')
+  .replace(/ö/g, 'o')
+  .replace(/ç/g, 'c')
+  .replace(/[^a-z0-9]+/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+function similarity(a = '', b = '') {
+  a = normalizeLoose(a);
+  b = normalizeLoose(b);
+  if (!a || !b) return 0;
+  if (a.includes(b) || b.includes(a)) return Math.min(1, Math.max(a.length, b.length) / Math.min(a.length + 4, b.length + 4));
+  const dp = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+  for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+  for (let j = 0; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
+    }
+  }
+  return 1 - dp[a.length][b.length] / Math.max(a.length, b.length, 1);
+}
+
+function detectAugmentsFromText(text, augmentNames) {
+  const cleanText = normalizeLoose(text);
+  const lines = text
+    .split(/\n|\r|\||•|-/)
+    .map(x => x.trim())
+    .filter(x => x.length >= 3);
+
+  const candidates = augmentNames.map((name) => {
+    const cleanName = normalizeLoose(name);
+    let score = cleanText.includes(cleanName) ? 1 : 0;
+    for (const line of lines) {
+      score = Math.max(score, similarity(line, name));
+    }
+    return { name, score };
+  })
+  .filter(x => x.score >= 0.55)
+  .sort((a, b) => b.score - a.score);
+
+  const picked = [];
+  for (const c of candidates) {
+    if (!picked.some(p => normalizeLoose(p.name) === normalizeLoose(c.name))) picked.push(c);
+    if (picked.length === 3) break;
+  }
+  return picked;
+}
 
 function getChampion(name) {
   return champions.find((c) => normalize(c.name) === normalize(name));
@@ -134,6 +194,10 @@ function App() {
   const [enemies, setEnemies] = useState(['Smolder', 'Twisted Fate', 'Illaoi', 'Cassiopeia', 'Lissandra']);
   const [turns, setTurns] = useState([{...emptyTurn}, {...emptyTurn}, {...emptyTurn}, {...emptyTurn}]);
   const [activeTurn, setActiveTurn] = useState(0);
+  const [ocrLoading, setOcrLoading] = useState(false);
+  const [ocrText, setOcrText] = useState('');
+  const [ocrCards, setOcrCards] = useState([]);
+  const [ocrError, setOcrError] = useState('');
   const champ = getChampion(champion);
   const metaRow = getMeta(champion);
   const evaluations = turns.map((_, i) => evaluateTurn(i, champion, enemies, turns));
@@ -148,6 +212,38 @@ function App() {
   }
   function reroll() {
     setTurns(prev => prev.map((t, idx) => idx !== activeTurn ? t : { ...t, options: ['', '', ''], lockedChoice: '' }));
+  }
+
+  async function readCardsFromImage(file) {
+    if (!file) return;
+    setOcrLoading(true);
+    setOcrError('');
+    setOcrText('');
+    setOcrCards([]);
+    try {
+      const result = await Tesseract.recognize(file, 'tur+eng');
+      const text = result?.data?.text || '';
+      const detected = detectAugmentsFromText(text, augmentNames);
+      setOcrText(text);
+      setOcrCards(detected);
+      if (detected.length === 0) {
+        setOcrError('Eklenti adı yakalanamadı. Daha net / yakın kırpılmış ekran görüntüsü dene.');
+      }
+    } catch (err) {
+      setOcrError('Görsel okunamadı. Dosya formatını veya görüntü netliğini kontrol et.');
+    } finally {
+      setOcrLoading(false);
+    }
+  }
+
+  function applyOcrCards() {
+    if (ocrCards.length === 0) return;
+    setTurns(prev => prev.map((t, idx) => {
+      if (idx !== activeTurn) return t;
+      const nextOptions = [...t.options];
+      [0, 1, 2].forEach(i => { nextOptions[i] = ocrCards[i]?.name || nextOptions[i] || ''; });
+      return { ...t, options: nextOptions };
+    }));
   }
   function resetAll() {
     setTurns([{...emptyTurn}, {...emptyTurn}, {...emptyTurn}, {...emptyTurn}]);
@@ -193,21 +289,7 @@ function App() {
         </div>
         <div className="option-grid">
           {[0,1,2].map(i => (
-            <div
-  className={`option ${
-    currentEval.scored[0]?.name &&
-    normalize(currentEval.scored[0].name) === normalize(turns[activeTurn].options[i])
-      ? 'rank-best'
-      : currentEval.scored[1]?.name &&
-        normalize(currentEval.scored[1].name) === normalize(turns[activeTurn].options[i])
-      ? 'rank-mid'
-      : currentEval.scored[2]?.name &&
-        normalize(currentEval.scored[2].name) === normalize(turns[activeTurn].options[i])
-      ? 'rank-low'
-      : ''
-  }`}
-  key={i}
->
+            <div className="option" key={i}>
               <label>Kart {i+1}</label>
               <AutoCompleteInput value={turns[activeTurn].options[i]} onChange={(v) => setTurnOption(activeTurn, i, v)} options={augmentNames} placeholder="Eklenti yaz" />
               {currentEval.scored.find(s => normalize(s.name) === normalize(turns[activeTurn].options[i])) && (
@@ -217,6 +299,43 @@ function App() {
               )}
             </div>
           ))}
+        </div>
+
+        <div className="ocr-card">
+          <div className="ocr-head">
+            <div>
+              <h3><Camera size={16}/> Ekran görüntüsünden kartları oku <span>Beta</span></h3>
+              <p>Manuel giriş aynı kalır. İstersen kart ekranının fotoğrafını/screenshot'ını yükleyip 3 kartı otomatik doldurmayı deneyebilirsin.</p>
+            </div>
+            <label className="upload-btn">
+              <UploadCloud size={16}/>
+              Görsel seç
+              <input
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={(e) => readCardsFromImage(e.target.files?.[0])}
+              />
+            </label>
+          </div>
+
+          {ocrLoading && <div className="ocr-status">Görsel okunuyor... İlk kullanımda birkaç saniye sürebilir.</div>}
+          {ocrError && <div className="ocr-error">{ocrError}</div>}
+          {ocrCards.length > 0 && (
+            <div className="ocr-result">
+              <b>Yakalanan kartlar:</b>
+              <div className="ocr-pills">
+                {ocrCards.map((c, i) => <span key={c.name}>{i + 1}. {c.name} <em>%{Math.round(c.score * 100)}</em></span>)}
+              </div>
+              <button className="secondary" onClick={applyOcrCards}>Aktif tura uygula</button>
+            </div>
+          )}
+          {ocrText && (
+            <details className="ocr-raw">
+              <summary>OCR ham metni göster</summary>
+              <pre>{ocrText}</pre>
+            </details>
+          )}
         </div>
 
         <div className={`decision ${currentEval.pass ? 'take' : 'reroll'}`}>
